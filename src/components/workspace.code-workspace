@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "portfolio-vue",
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5501
+	}
+}
