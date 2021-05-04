@@ -11,7 +11,7 @@
       </div>
     </div>
   </section>
-  <SideBar />
+  <SideBar :displayedPage=pageTitle />
   <Footer />
 </template>
 

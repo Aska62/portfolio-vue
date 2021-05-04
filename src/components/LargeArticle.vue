@@ -3,7 +3,7 @@
   <div class="large-article-box" v-bind:class="{ showLargeArticle: showArticle }">
     <i class="fa fa-times close-icon" @click="hideArticle"></i>
     <img class="large-article" :src=imageUrl>
-    <p>{{ imageDesc }}</p>
+    <p class="image-desc">{{ imageDesc }}</p>
   </div>
 </section>
 </template>
@@ -49,12 +49,13 @@ export default {
   position: fixed;
   top: 90px;
   left: 25%;
+  z-index: 3;
 }
 .large-article {
   max-width: 700px;
   /* height: 90%; */
   max-height: 700px;
-  margin: 50px 40px 40px 40px;
+  margin: 50px 40px 5px 40px;
   padding: 0;
   text-align: center;
   z-index: 10;
@@ -80,6 +81,12 @@ export default {
   cursor: pointer;
   color: rgba(102, 102, 23, .7);
   border: 5px solid rgba(102, 102, 23, .5);
+}
+
+.image-desc {
+  font-size: 24px;
+  line-height: 1;
+  margin: 0 0 20px 0;
 }
 
 </style>

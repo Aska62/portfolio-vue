@@ -1,6 +1,6 @@
 <template>
   <Header :pageTitle=pageTitle />
-  <SideBar />
+  <SideBar :displayedPage=pageTitle />
   <PageCover
     :pageCoverTitle="pageCoverTitle"
     :pageCoverText="pageCoverString"

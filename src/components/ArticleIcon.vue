@@ -42,6 +42,10 @@ export default {
       type: URL,
       default: '#'
     },
+    imageDesc: {
+      type: String,
+      default: ''
+    }
   },
   methods: {
     showCover() {

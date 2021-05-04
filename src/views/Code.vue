@@ -10,7 +10,7 @@
       <a class="github-link" :href="data.link" target="_blank" rel="noopener">View Code on GitHub</a>
     </div>
   </section>
-  <SideBar />
+  <SideBar :displayedPage=pageTitle />
   <Footer />
 </template>
 

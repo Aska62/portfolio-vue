@@ -1,6 +1,6 @@
 <template>
   <Header :pageTitle=pageTitle />
-  <SideBar />
+  <SideBar :displayedPage=pageTitle />
   <section class="dive-content">
     <div class="dive-vid-container">
       <iframe class="video" src="https://youtube.com/embed/V8UJM5Ttflo" control></iframe>

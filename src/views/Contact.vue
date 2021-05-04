@@ -1,6 +1,6 @@
 <template>
 <Header :pageTitle="pageTitle"/>
-<SideBar />
+<SideBar :displayedPage=pageTitle />
 <section class="contact-content">
   <div class="mail">
     <i class="fa fa-envelope mail-icon"></i>

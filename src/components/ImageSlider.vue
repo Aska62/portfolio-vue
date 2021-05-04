@@ -22,7 +22,7 @@ export default {
       previousId: 0,
       displayedId: 0,
       storeLeft: false,
-      storeRight: true,
+      storeRight: false,
     }
   },
   props: {
@@ -60,6 +60,7 @@ export default {
   max-height: 50vh;
   box-shadow: 0px 5px 7px 6px rgba(69, 69, 3,.4);
   transition: all 1s ease-in-out;
+  opacity: 1;
 }
 
 .button {

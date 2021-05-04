@@ -1,6 +1,6 @@
 <template>
   <Header :pageTitle="pageTitle" />
-  <SideBar />
+  <SideBar :displayedPage=pageTitle />
   <section class="about-content">
     <div class="profile-pic"></div>
     <div class="history-container">

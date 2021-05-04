@@ -9,8 +9,8 @@
     </ul>
     <router-link to="/about"><h1 class="name">Aska Takahashi</h1></router-link>
   </section>
-  <SideBar></SideBar>
-  <Footer></Footer>
+  <SideBar :displayedPage=pageTitle />
+  <Footer />
 </template>
 
 <script>

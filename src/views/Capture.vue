@@ -1,6 +1,6 @@
 <template>
 <Header :pageTitle=pageTitle />
-<SideBar />
+<SideBar :displayedPage=pageTitle />
 <div class='slider-container'>
   <i class="fa fa-caret-left button btn-left" @click="shiftToLeft"></i>
   <img
@@ -9,11 +9,17 @@
     :key="image"
     :id=image.id
     :src=image.image
-    v-bind:class="{ left: storeLeft, right: storeRight }"
   >
   <i class="fa fa-caret-right button btn-right" @click="shiftToRight"></i>
 </div>
 <PageText :text1=text1 :text2=text2 :text3=text3 :textDesc=textDesc />
+<a href="https://www.instagram.com/aska62bean/" target="_blank" rel="noopener">
+  <div class="link-insta">
+    <p class="insta-msg">Visity My</p>
+    <i class="instagram-icon fa fa-instagram capt-insta" aria-hidden="true"></i>
+    <p class="insta-msg">Instagram!</p>
+  </div>
+</a>
 <Footer />
 </template>
 
@@ -44,42 +50,80 @@ export default {
       previousId: 0,
       displayedId: 0,
       storeLeft: false,
-      storeRight: true,
-      // firstImage: true
+      storeRight: false,
     }
   },
   methods: {
+    async loadImages() {
+      await this.fetchImages().then(()=> {
+        this.displayInitImgs();
+      })
+    },
     async fetchImages() {
       await axios.get(`http://localhost:5000/capture-images`).then((response) => {
         this.images = response.data;
         this.displayedId = this.images[0].id;
         this.nextId = this.images[1].id;
         this.previousId = this.images[14].id;
-        // this.loadInitImg()
-        // if(this.$refs.sliderImage.id === 1) {
-        //   this.storeLeft = false;
-        //   this.storeRight = false;
-        // } else {
-        //   this.storeLeft = false;
-        //   this.storeRight = true;
-        // }
       })
     },
-    loadInitImg() {
-      // this.displayedId = this.images[0].id;
-      // this.nextId = this.images[1].id;
-      // this.previousId = this.images[14].id;
-      // if(this.$refs.sliderImage.id === 1) {
-      //   this.storeLeft = false;
-      //   this.storeRight = false;
-      // } else {
-      //   this.storeLeft = false;
-      //   this.storeRight = true;
-      // }
+    displayInitImgs() {
+      const sliderImgs = document.querySelectorAll('.image-container');
+      for(let i=0; i<sliderImgs.length; i++) {
+        if(sliderImgs[i].id != 1) {
+          sliderImgs[i].classList.add("right");
+        }
+      }
+    },
+    shiftToRight() {
+      let allImgs = document.querySelectorAll('.image-container');
+      let displayedImg = document.getElementById(`${this.displayedId}`);
+      let nextImg = document.getElementById(`${this.nextId}`);
+      // move displayed image to left
+      displayedImg.classList.add("left");
+      this.previousId = this.displayedId;
+      // display next image
+      // if the displayed image is the last, move the first image from left
+      if(this.displayedId == 15) {
+        for(let i=0; i<allImgs.length; i++) {
+          allImgs[i].classList.remove("left");
+          allImgs[i].classList.add("right");
+        }
+        this.displayedId = 1;
+      } else {
+        this.displayedId++;
+      }
+      nextImg.classList.remove("right");
+      // set the next image
+      // if the next image is the last, assign the first image to the next
+      if(this.nextId == this.images.length) {
+        this.nextId = 1;
+      } else {
+        this.nextId++;
+      }
+      console.log(`next id is ${this.nextId}`)
+    },
+    shiftToLeft() {
+      let allImgs = document.querySelectorAll('.image-container');
+      let displayedImg = document.getElementById(`${this.displayedId}`);
+      let previousImg = document.getElementById(`${this.previousId}`);
+      // move displayed image to right
+      displayedImg.classList.add("right");
+      this.nextId = this.displayedId;
+      // display previous image
+      // if the displayed image is the last, move the last image from right
+      previousImg.classList.remove("right");
+      if(this.previousId == 1) {
+        this.displayedId = this.previousId;
+        this.previousId = allImgs.length;
+      } else {
+        this.displayedId = this.previousId;
+        this.previousId--;
+      }
     }
   },
   mounted() {
-    this.fetchImages()
+    this.loadImages()
   }
 }
 </script>
@@ -135,5 +179,33 @@ export default {
   position: fixed;
   left: -2000px;
   opacity: 0;
+}
+
+.link-insta {
+  background-color: rgba(255, 255, 255, 0);
+  width: 120px;
+  height: 92px;
+  border-radius: 30%;
+  font-size: 70px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  right: 12vw;
+  top: 60vh;
+  color: rgba(201, 66, 66, .9);
+  z-index: 5;
+}
+.link-insta:hover {
+  cursor: pointer;
+  font-size: 80px;
+  color: rgba(201, 66, 66, 1);
+  background-color:rgba(255, 255, 255, .5);
+}
+.insta-msg {
+  font-size: 15px;
+  margin: -5px 0 -5px 0;
+  padding: 0;
 }
 </style>

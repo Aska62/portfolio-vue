@@ -9,13 +9,13 @@
       <div class="hamburger line3" v-bind:class="{hamburger__visible: hamburger__isVisible}"></div>
     </div>
     <div class="menu-container" v-bind:class="{ menu__visible: menu__isVisible }">
-      <router-link to="/code"><p class="menu" v-bind:class="{ current: currentPage }">Code</p></router-link>
-      <router-link to="/write"><p class="menu" v-bind:class="{ current: currentPage }">Write</p></router-link>
-      <router-link to="/dive"><p class="menu" v-bind:class="{ current: currentPage }">Dive</p></router-link>
-      <router-link to="/capture"><p class="menu" v-bind:class="{ current: currentPage }">Capture</p></router-link>
-      <router-link to="/travel"><p class="menu" v-bind:class="{ current: currentPage }">Travel</p></router-link>
-      <router-link to="/about"><p class="menu" v-bind:class="{ current: currentPage }">About</p></router-link>
-      <router-link to="/contact"><p class="menu" v-bind:class="{ current: currentPage }">Contact</p></router-link>
+      <router-link to="/code"><p class="menu">Code</p></router-link>
+      <router-link to="/write"><p class="menu">Write</p></router-link>
+      <router-link to="/dive"><p class="menu">Dive</p></router-link>
+      <router-link to="/capture"><p class="menu">Capture</p></router-link>
+      <router-link to="/travel"><p class="menu">Travel</p></router-link>
+      <router-link to="/about"><p class="menu">About</p></router-link>
+      <router-link to="/contact"><p class="menu">Contact</p></router-link>
     </div>
   </section>
 </template>
@@ -31,16 +31,32 @@ export default {
       currentPage: false
     }
   },
+  props: {
+    displayedPage: {
+      type: String,
+      default: ''
+    }
+  },
   methods: {
     displayMenu() {
       if (this.isRound === false) {
         this.isRound = true;
         this.hamburger__isVisible = false;
         this.menu__isVisible = true;
+        this.highlightPageTitle();
       } else {
         this.isRound = false;
         this.hamburger__isVisible = true;
         this.menu__isVisible = false;
+      }
+    },
+    highlightPageTitle() {
+      const titles = document.querySelectorAll('.menu');
+      for(let i = 0; i < titles.length; i++) {
+        if (this.displayedPage === titles[i].textContent) {
+          titles[i].classList.add("displayed")
+          break;
+        }
       }
     }
   }
@@ -114,7 +130,7 @@ a:link {
   text-decoration: none;
 }
 
-.displayed-page {
+.displayed {
   color:#d6d694;
 }
 </style>
