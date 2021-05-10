@@ -8,7 +8,7 @@
   <section class="travel-content">
     <div class="image-container">
       <div class="icon-box" v-for="image in images" :key="image">
-        <ArticleIcon :image=image.image :imageDesc=image.location />
+        <ArticleIcon :image=image.image :imageDesc=image.name />
       </div>
     </div>
   </section>
@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     async fetchImages() {
-      await axios.get(`http://localhost:5000/travel-images`).then((response) => {
+      await axios.get(`http://localhost:3000/travelPics`).then((response) => {
         this.images = response.data;
       })
     }

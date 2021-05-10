@@ -5,7 +5,7 @@
     :pageCoverText="pageCoverText" />
   <section class="code-content">
     <div class="code-data" v-for="data in codeData" :key="data">
-      <p class="code-title">{{ data.title }}</p>
+      <p class="code-title">{{ data.name }}</p>
       <iframe class="video" :src="data.video" control></iframe>
       <a class="github-link" :href="data.link" target="_blank" rel="noopener">View Code on GitHub</a>
     </div>
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     async fetchCodeData() {
-      await axios.get(`http://localhost:5000/code-data`).then((response) => {
+      await axios.get(`http://localhost:3000/videos`).then((response) => {
         this.codeData = response.data;
       })
     }
