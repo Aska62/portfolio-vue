@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     async fetchImages() {
-      await axios.get(`http://localhost:3000/travelPics`).then((response) => {
+      await axios.get(`https://portfolio-backend-9b834.web.app/travelPics`).then((response) => {
         this.images = response.data;
       })
     }

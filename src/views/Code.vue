@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     async fetchCodeData() {
-      await axios.get(`http://localhost:3000/videos`).then((response) => {
+      await axios.get(`https://portfolio-backend-9b834.web.app/videos`).then((response) => {
         this.codeData = response.data;
       })
     }

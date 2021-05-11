@@ -60,7 +60,7 @@ export default {
       })
     },
     async fetchImages() {
-      await axios.get(`http://localhost:3000/photographs`).then((response) => {
+      await axios.get(`https://portfolio-backend-9b834.web.app/photographs`).then((response) => {
         this.images = response.data;
         this.displayedId = this.images[0].id;
         this.nextId = this.images[1].id;

@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     async fetchImages() {
-      await axios.get(`http://localhost:3000/articles`).then((response) => {
+      await axios.get(`https://portfolio-backend-9b834.web.app/articles`).then((response) => {
         this.images = response.data;
         console.log(this.images);
       })
