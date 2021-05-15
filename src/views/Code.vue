@@ -2,7 +2,8 @@
   <Header :pageTitle="pageTitle" />
   <PageCover
     :pageCoverTitle="pageCoverTitle"
-    :pageCoverText="pageCoverText" />
+    :pageCoverText="pageCoverText"
+    :page="pageTitle" />
   <section class="code-content">
     <div class="code-data" v-for="data in videosData" :key="data">
       <p class="code-title">{{ data.name }}</p>

@@ -1,8 +1,13 @@
 <template>
   <section class="page-cover" v-bind:class="{ fade: isFading, shrink: hasShrank }" @click="enlargeCover">
     <i class="fa fa-times close-icon2" @click="shrinkCover" v-bind:class="{ hidden: isHidden}"></i>
-    <PageCoverTitle :pageCoverTitle="pageCoverTitle" v-bind:class="{ hidden: isHidden}"/>
-    <PageCoverText :pageCoverText="pageCoverText" v-bind:class="{ hidden: isHidden}"/>
+    <PageCoverTitle
+      :pageCoverTitle="pageCoverTitle"
+      v-bind:class="{ hidden: isHidden}"/>
+    <PageCoverText
+      :pageCoverText="pageCoverText"
+      :page="page"
+      v-bind:class="{ hidden: isHidden}"/>
   </section>
 </template>
 
@@ -25,6 +30,11 @@ export default {
     pageCoverText: {
       type: Array,
       default: [],
+      required: true
+    },
+    page: {
+      type: String,
+      default: '',
       required: true
     }
   },
@@ -55,7 +65,7 @@ export default {
 
 <style scoped>
 .page-cover {
-  z-index: 1;
+  z-index: 2;
   width: 85vw;
   height: 86vh;
   position: fixed;
@@ -110,18 +120,19 @@ export default {
 
 @media screen and (max-width: 420px) {
   .page-cover {
-    z-index: 4;
-    height: 85vh;
-    padding: 12px 10px;
+    z-index: 5;
+    width: 92%;
+    height: fit-content;
+    padding: 40px 2px;
     box-shadow: none;
   }
   .close-icon2 {
-    width: 46px;
-    height: 46px;
-    font-size: 42px;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
     border: 3px solid #666617;
-    top: 30px;
-    right: 40px;
+    top: 25px;
+    right: 18px;
   }
   .close-icon2:hover {
     border: 3px solid rgba(102, 102, 23, .5);

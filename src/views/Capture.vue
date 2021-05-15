@@ -248,15 +248,25 @@ export default {
     margin: 0 25px;
     transition-duration: .3s;
   }
+  .button:hover {
+    font-size: 50px;
+  }
   .btn-left {
-    left: 5px;
+    left: 0;
   }
   .btn-right {
-    right: 30px;
+    right: 28px;
   }
   .link-insta {
+    font-size: 50px;
     right: 3vw;
-    top: 78vh;
+    top: 53vh;
+    right: 0;
+  }
+  .insta-msg {
+    font-size: 12px;
+    margin: -3px 0 -3px 0;
+    padding: 0;
   }
 }
 </style>

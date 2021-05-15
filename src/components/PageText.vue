@@ -1,13 +1,15 @@
 <template>
-<div class="text-container">
-  <p class="text1">{{ text1 }}</p>
-  <p class="text3">{{ text3 }}</p>
-  <p class="text2">{{ text2 }}</p>
-  <p class="text4">{{ text4 }}</p>
-</div>
-<div class="text-desc">
-  <p>{{ textDesc }}</p>
-</div>
+<section class="page-text-box">
+  <div class="text-container">
+    <p class="text1">{{ text1 }}</p>
+    <p class="text3">{{ text3 }}</p>
+    <p class="text2">{{ text2 }}</p>
+    <p class="text4">{{ text4 }}</p>
+  </div>
+  <div class="text-desc">
+    <p>{{ textDesc }}</p>
+  </div>
+</section>
 </template>
 
 <script>
@@ -44,8 +46,16 @@ export default {
 </script>
 
 <style>
+.page-text-box {
+  width: 88vw;
+  min-width: 800px;
+  height: 75vh;
+  text-align: center;
+  z-index: 0;
+  overflow: scroll;
+}
 .text-container {
-  width: 78%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -81,20 +91,28 @@ export default {
   color:#8c8c23;
   padding: 0;
   line-height: 1.2;
+  overflow: scroll;
+  margin-left: 10%;
 }
 
 @media screen and (max-width: 420px) {
+  .page-text-box {
+    width: 100vw;
+    min-width: 200px;
+    height: 75vh;
+  }
   .text1 {
     font-size: 28px;
   }
   .text2 {
-    font-size: 42px;
+    font-size: 37px;
   }
   .text3, .text4 {
-    font-size: 58px;
+    font-size: 50px;
   }
   .text-desc {
     font-size: 20px;
+    margin-bottom: 80px;
   }
 }
 

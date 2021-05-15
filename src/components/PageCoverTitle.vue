@@ -22,7 +22,7 @@ export default {
 
 @media screen and (max-width: 420px) {
   .title {
-    font-size: 35px;
+    font-size: 32px;
     margin: 10px auto;
   }
 }

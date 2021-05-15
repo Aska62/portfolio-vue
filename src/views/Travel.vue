@@ -4,6 +4,7 @@
   <PageCover
     :pageCoverTitle="pageCoverTitle"
     :pageCoverText="pageCoverString"
+    :page="pageTitle"
   />
   <section class="travel-content">
     <div class="image-container">

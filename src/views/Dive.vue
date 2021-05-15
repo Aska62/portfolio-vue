@@ -69,11 +69,11 @@ export default {
   }
   .dive-vid-container {
     width: 90%;
-    margin: 60px auto 20px auto;
+    margin: 40px auto 20px auto;
   }
   .video {
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
   }
 }
 

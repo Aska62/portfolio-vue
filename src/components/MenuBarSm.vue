@@ -66,6 +66,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content:flex-start;
     position: fixed;
     bottom: -100px;
     left: -20px;
@@ -73,8 +74,8 @@ export default {
     transition-duration: 1s;
   }
   .menu__visible {
-    width: 1100px;
-    height: 1100px;
+    width: 1000px;
+    height: 1000px;
     bottom: -400px;
     left: -600px;
   }
@@ -89,7 +90,7 @@ export default {
     align-items: center;
     justify-content: center;
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     left: 20px;
     z-index: 6;
   }
@@ -100,7 +101,7 @@ export default {
   .menu-title {
     font-size: 30px;
     color:#666617;
-    margin: 20px 0 25px 350px;
+    margin: 20px 0 10px 350px;
     align-self: center;
   }
   .menu-title:hover {

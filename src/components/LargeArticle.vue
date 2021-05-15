@@ -2,8 +2,8 @@
 <section>
   <div class="large-article-box" v-bind:class="{ showLargeArticle: showArticle }">
     <i class="fa fa-times close-icon" @click="hideArticle"></i>
-    <img class="large-article" :src=imageUrl>
     <p class="image-desc">{{ imageDesc }}</p>
+    <img class="large-article" :src=imageUrl>
   </div>
 </section>
 </template>
@@ -48,13 +48,13 @@ export default {
   border-radius: 8px;
   position: fixed;
   top: 90px;
-  left: 25%;
-  z-index: 3;
+  left: 7%;
+  z-index: 6;
 }
 .large-article {
   max-width: 700px;
   max-height: 700px;
-  margin: 50px 40px 5px 40px;
+  margin: 5px 40px 15px 40px;
   padding: 0;
   text-align: center;
   z-index: 4;
@@ -70,10 +70,10 @@ export default {
   height: 33px;
   font-size: 33px;
   border-radius: 50%;
-  border: 5px solid #666617;
+  border: 3px solid #666617;
   position: absolute;
-  right: 6px;
-  top: 6px;
+  right: 3px;
+  top: 3px;
 }
 
 .close-icon:hover {
@@ -85,19 +85,19 @@ export default {
 .image-desc {
   font-size: 24px;
   line-height: 1;
-  margin: 0 0 20px 0;
+  margin: 10px 0 0 0;
 }
 
 @media screen and (max-width: 420px) {
   .large-article-box{
     max-width: 95vw;
-    top: 110px;
+    top: 20px;
     left: 10px;
   }
   .large-article {
     max-width: 95%;
     max-height: 700px;
-    margin: 48px 20px 5px 10px;
+    margin: 0 20px 5px 10px;
     text-align: center;
   }
 
