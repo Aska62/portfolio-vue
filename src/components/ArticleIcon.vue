@@ -73,6 +73,10 @@ export default {
     box-shadow: 1px 1px 3px 2px rgba(69, 69, 3,.4);
   }
 
+  .article-icon:hover {
+    cursor: pointer;
+  }
+
   .loadImg {
     background-image: url(`${this.image}`);
   }

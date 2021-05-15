@@ -4,11 +4,12 @@
 <div class='slider-container'>
   <i class="fa fa-caret-left button btn-left" @click="shiftToLeft"></i>
   <img
-    class='image-container'
+    class='image-container right'
     v-for="image in images"
     :key="image"
     :id=image.id
     :src=image.image
+    @load="displayInitImgs"
   >
   <i class="fa fa-caret-right button btn-right" @click="shiftToRight"></i>
 </div>
@@ -29,6 +30,7 @@ import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
 import PageText from '@/components/PageText.vue'
 import axios from 'axios'
+import captureImages from '../data/capture_imgs.json'
 
 export default {
   name: 'Capture',
@@ -45,33 +47,41 @@ export default {
       text2: "Photographer.",
       text3: "Fun-Loving",
       textDesc: "Ever since I held my first SLR, loving to capture everyday scene into frame.",
-      images: [],
+      images: captureImages,
       nextId: 0,
       previousId: 0,
       displayedId: 0,
       storeLeft: false,
       storeRight: false,
+      initialRoad: true,
     }
   },
   methods: {
-    async loadImages() {
-      await this.fetchImages().then(()=> {
-        this.displayInitImgs();
-      })
-    },
-    async fetchImages() {
-      await axios.get(`https://portfolio-backend-9b834.web.app/photographs`).then((response) => {
-        this.images = response.data;
-        this.displayedId = this.images[0].id;
-        this.nextId = this.images[1].id;
-        this.previousId = this.images[14].id;
-      })
-    },
+    // async loadImages() {
+      // await this.fetchImages().then(()=> {
+      //   this.displayInitImgs();
+      // })
+    //   displayInitImgs();
+    // },
+    // async fetchImages() {
+    //   await axios.get(`https://portfolio-backend-9b834.web.app/photographs`).then((response) => {
+    //     this.images = response.data;
+    //     this.displayedId = this.images[0].id;
+    //     this.nextId = this.images[1].id;
+    //     this.previousId = this.images[14].id;
+    //   })
+    // },
     displayInitImgs() {
       const sliderImgs = document.querySelectorAll('.image-container');
-      for(let i=0; i<sliderImgs.length; i++) {
-        if(sliderImgs[i].id != 1) {
-          sliderImgs[i].classList.add("right");
+      if(this.initialRoad === true){
+        for(let i=0; i<sliderImgs.length; i++) {
+          if(sliderImgs[i].id == 1) {
+            sliderImgs[i].classList.remove("right");
+            this.displayedId = 1;
+            this.nextId = 2;
+            this.previousId = sliderImgs.length;
+            this.initialRoad = false;
+          }
         }
       }
     },
@@ -84,8 +94,8 @@ export default {
       this.previousId = this.displayedId;
       // display next image
       // if the displayed image is the last, move the first image from left
-      if(this.displayedId == 15) {
-        for(let i=0; i<allImgs.length; i++) {
+      if(this.displayedId == this.images.length) {
+        for(let i=0; i<this.images.length; i++) {
           allImgs[i].classList.remove("left");
           allImgs[i].classList.add("right");
         }
@@ -101,7 +111,6 @@ export default {
       } else {
         this.nextId++;
       }
-      console.log(`next id is ${this.nextId}`)
     },
     shiftToLeft() {
       let allImgs = document.querySelectorAll('.image-container');
@@ -111,19 +120,25 @@ export default {
       displayedImg.classList.add("right");
       this.nextId = this.displayedId;
       // display previous image
-      // if the displayed image is the last, move the last image from right
-      previousImg.classList.remove("right");
-      if(this.previousId == 1) {
-        this.displayedId = this.previousId;
-        this.previousId = allImgs.length;
+      // if the displayed image is the first, move the last image from right
+      if(this.displayedId == 1) {
+        for(let i=0; i<this.images.length; i++) {
+          allImgs[i].classList.remove("right");
+          allImgs[i].classList.add("left");
+        }
+        this.displayedId = this.images.length;
       } else {
-        this.displayedId = this.previousId;
+        this.displayedId--;
+      }
+      previousImg.classList.remove("left");
+      // set the previous image
+      // if the previous image is the last, assign the first image to the previous
+      if(this.previousId == 1) {
+        this.previousId = this.images.length;
+      } else {
         this.previousId--;
       }
     }
-  },
-  mounted() {
-    this.loadImages()
   }
 }
 </script>

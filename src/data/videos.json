@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "name": "Image Slider",
+    "video": "https://www.youtube.com/embed/DZZJ72Uqdl4",
+    "link": "https://github.com/Aska62/Image-slider"
+  },
+  {
+    "id": 1,
+    "name": "Calculator",
+    "video": "https://www.youtube.com/embed/LuZFDiNxr9k",
+    "link": "https://github.com/Aska62/calculator"
+  },
+  {
+    "id": 2,
+    "name": "Etch-a-Sketch",
+    "video": "https://www.youtube.com/embed/73tsg2O3b1I",
+    "link": "https://github.com/Aska62/etch_a_sketch"
+  },
+  {
+    "id": 3,
+    "name": "Restaurant",
+    "video": "https://www.youtube.com/embed/l50y-UpeYJM",
+    "link": "https://github.com/Aska62/Restaurant"
+  },
+  {
+    "id": 4,
+    "name": "Library",
+    "video": "https://www.youtube.com/embed/5o0oC3CnSCw",
+    "link": "https://github.com/Aska62/my-library"
+  },
+  {
+    "id": 5,
+    "name": "Todo List",
+    "video": "https://www.youtube.com/embed/l9JqE8-B2Y8",
+    "link": "https://github.com/Aska62/todo-list"
+  },
+  {
+    "id": 6,
+    "name": "Tic-Tac-Toe",
+    "video": "https://www.youtube.com/embed/QBtN2MnCUAs",
+    "link": "https://github.com/Aska62/tic-tac-toe"
+  },
+  {
+    "id": 7,
+    "name": "Auction",
+    "video": "https://www.youtube.com/embed/radDZov71rY",
+    "link": "https://github.com/Aska62/auction"
+  }
+]

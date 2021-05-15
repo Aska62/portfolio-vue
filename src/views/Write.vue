@@ -22,6 +22,7 @@ import SideBar from '@/components/SideBar.vue'
 import PageCover from '@/components/PageCover.vue'
 import ArticleIcon from '@/components/ArticleIcon.vue'
 import axios from 'axios'
+import articlesData from "../data/articles.json"
 
 export default {
   name: 'Write',
@@ -37,22 +38,22 @@ export default {
       pageTitle: "Write",
       pageCoverTitle: "Since 2013, magazine and web writing/editing has been my major career.",
       pageCoverText: ["Japanese lifestyle magazine in Singapore", "Web media about Science and Technology", "E-Commerce platform for beauty products", "Travel Magazine and leaflets", "Product review website"],
-      images: [],
+      images: articlesData,
       clickedImage: ""
     }
   },
-  methods: {
-    async fetchImages() {
-      await axios.get(`https://portfolio-backend-9b834.web.app/articles`).then((response) => {
-        this.images = response.data;
-        console.log(this.images);
-      })
-    }
-  },
-  mounted() {
-    this.fetchImages()
-    console.log('image data fetched')
-  }
+  // methods: {
+  //   async fetchImages() {
+  //     await axios.get(`https://portfolio-backend-9b834.web.app/articles`).then((response) => {
+  //       this.images = response.data;
+  //       console.log(this.images);
+  //     })
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchImages()
+  //   console.log('image data fetched')
+  // }
 }
 </script>
 

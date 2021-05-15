@@ -8,7 +8,7 @@
   <section class="travel-content">
     <div class="image-container">
       <div class="icon-box" v-for="image in images" :key="image">
-        <ArticleIcon :image=image.image :imageDesc=image.name />
+        <ArticleIcon :image=image.image :imageDesc=image.location />
       </div>
     </div>
   </section>
@@ -22,6 +22,7 @@ import SideBar from '@/components/SideBar.vue'
 import PageCover from '@/components/PageCover.vue'
 import ArticleIcon from '@/components/ArticleIcon.vue'
 import axios from 'axios'
+import travelImages from '../data/travel_imgs.json'
 
 export default {
   name: 'Travel',
@@ -37,19 +38,19 @@ export default {
       pageTitle: "Travel",
       pageCoverTitle: "I have visited 35 countries and areas.",
       pageCoverString: ["Hong Kong, Malaysia, Italy, Vatican, Australia, Czech Republic, France, Switzerland, Uzbekistan, Canada, USA, Mexico, China, Taiwan, Morocco, Turkey, Singapore, Myammar, Indonesia, Cambodia, Thailand, Laos, Vietnam, South Korea, UAE, Austria, Slovenia, Croatia, Bosnia and Herzegovina, Serbia, Hungary, Slovakia, Ethiopia, Nepal, Philippines"],
-      images: []
+      images: travelImages
     }
   },
-  methods: {
-    async fetchImages() {
-      await axios.get(`https://portfolio-backend-9b834.web.app/travelPics`).then((response) => {
-        this.images = response.data;
-      })
-    }
-  },
-  mounted() {
-    this.fetchImages()
-  }
+  // methods: {
+  //   async fetchImages() {
+  //     await axios.get(`https://portfolio-backend-9b834.web.app/travelPics`).then((response) => {
+  //       this.images = response.data;
+  //     })
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchImages()
+  // }
 }
 </script>
 

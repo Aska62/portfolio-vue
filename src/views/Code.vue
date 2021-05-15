@@ -4,7 +4,7 @@
     :pageCoverTitle="pageCoverTitle"
     :pageCoverText="pageCoverText" />
   <section class="code-content">
-    <div class="code-data" v-for="data in codeData" :key="data">
+    <div class="code-data" v-for="data in videosData" :key="data">
       <p class="code-title">{{ data.name }}</p>
       <iframe class="video" :src="data.video" control></iframe>
       <a class="github-link" :href="data.link" target="_blank" rel="noopener">View Code on GitHub</a>
@@ -20,6 +20,7 @@ import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
 import PageCover from '@/components/PageCover.vue'
 import axios from 'axios'
+import videosData from "../data/videos.json"
 
 export default {
   name: 'Code',
@@ -34,19 +35,19 @@ export default {
       pageTitle: "Code",
       pageCoverTitle: "I am a Code Addict since 2020.",
       pageCoverText: ["HTML5, CSS", "JavaScript", "Vue.js", "Node.js, Express", "Python, Flask, Django", "SQL", "Java 11"],
-      codeData: []
+      videosData: videosData
     }
   },
-  methods: {
-    async fetchCodeData() {
-      await axios.get(`https://portfolio-backend-9b834.web.app/videos`).then((response) => {
-        this.codeData = response.data;
-      })
-    }
-  },
-  mounted() {
-    this.fetchCodeData()
-  }
+  // methods: {
+  //   async fetchCodeData() {
+  //     await axios.get(`https://portfolio-backend-9b834.web.app/videos`).then((response) => {
+  //       this.codeData = response.data;
+  //     })
+  //   }
+  // },
+  // mounted() {
+  //   this.fetchCodeData()
+  // }
 }
 </script>
 
