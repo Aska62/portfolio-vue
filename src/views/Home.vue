@@ -10,6 +10,7 @@
     <router-link to="/about"><h1 class="name">Aska Takahashi</h1></router-link>
   </section>
   <SideBar :displayedPage=pageTitle />
+  <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
 
@@ -17,12 +18,14 @@
 // @ is an alias to /src
 import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
+import MenuBarSm from '@/components/MenuBarSm.vue'
 
 export default {
   name: 'Home',
   components: {
     Footer,
-    SideBar
+    SideBar,
+    MenuBarSm
   }
 }
 </script>
@@ -89,6 +92,30 @@ li a:hover {
   color: #c94242;
   font-size: 60px;
   transition-duration: .5s;
+}
+
+@media screen and (max-width: 420px) {
+  .category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    height: 80vh;
+  }
+
+  .category-text {
+    font-size: 100px;
+    line-height: 1;
+    margin: 0;
+    color: #edede1;
+  }
+
+  .name {
+    font-size: 40px;
+    position: fixed;
+    top: 30vh;
+  }
 }
 
 </style>

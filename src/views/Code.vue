@@ -11,6 +11,7 @@
     </div>
   </section>
   <SideBar :displayedPage=pageTitle />
+  <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
 
@@ -18,6 +19,7 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
+import MenuBarSm from '@/components/MenuBarSm.vue'
 import PageCover from '@/components/PageCover.vue'
 import axios from 'axios'
 import videosData from "../data/videos.json"
@@ -28,6 +30,7 @@ export default {
     Header,
     Footer,
     SideBar,
+    MenuBarSm,
     PageCover
   },
   data() {
@@ -54,7 +57,6 @@ export default {
 <style scoped>
 .code-content {
   width: 88vw;
-  /* height: 90vh; */
   z-index: 0;
 }
 
@@ -100,5 +102,27 @@ export default {
   color: #eb7171;
   font-size: 45px;
   transition-duration: .4s;
+}
+
+@media screen and (max-width: 420px) {
+  .code-data {
+    margin: 50px auto 40px auto;
+    width: 90%;
+  }
+  .code-data:nth-last-of-type(1) {
+    margin-bottom: 160px;
+  }
+  .code-title {
+    font-size: 30px;
+    text-align: center;
+  }
+  .video {
+    width: 90%;
+    height: 90%;
+  }
+  .github-link {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
 }
 </style>

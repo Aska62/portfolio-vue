@@ -73,10 +73,6 @@ export default {
   transition-duration: 1.2s;
 }
 
-.page-cover:hover {
-  background-color: rgba(212, 212, 193, .9);
-}
-
 .fade {
   opacity: 0;
 }
@@ -112,15 +108,37 @@ export default {
   border: 5px solid rgba(102, 102, 23, .5);
 }
 
-.enlarge-btn {
-  width: 63px;
-  height: 63px;
-  border-radius: 50%;
-  background-color: #666617;
-  box-shadow: 5px 5px 5px #666617;
-  position: fixed;
-  top: 3%;
-  right: 18%;
+@media screen and (max-width: 420px) {
+  .page-cover {
+    z-index: 4;
+    height: 85vh;
+    padding: 12px 10px;
+    box-shadow: none;
+  }
+  .close-icon2 {
+    width: 46px;
+    height: 46px;
+    font-size: 42px;
+    border: 3px solid #666617;
+    top: 30px;
+    right: 40px;
+  }
+  .close-icon2:hover {
+    border: 3px solid rgba(102, 102, 23, .5);
+  }
+  .shrink {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 83%;
+    opacity: .8;
+  }
+  .shrink:hover {
+    cursor: pointer;
+    opacity: .6;
+  }
 }
-
 </style>

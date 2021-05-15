@@ -97,6 +97,10 @@ export default {
   display: block;
 }
 
+.menu-btn {
+  display: none;
+}
+
 .close {
   display: none;
 }
@@ -133,4 +137,11 @@ a:link {
 .displayed {
   color:#d6d694;
 }
+
+@media screen and (max-width: 420px) {
+  .side-bar {
+    display: none;
+  }
+}
+
 </style>

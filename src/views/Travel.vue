@@ -12,6 +12,7 @@
       </div>
     </div>
   </section>
+  <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
 
@@ -19,6 +20,7 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
+import MenuBarSm from '@/components/MenuBarSm.vue'
 import PageCover from '@/components/PageCover.vue'
 import ArticleIcon from '@/components/ArticleIcon.vue'
 import axios from 'axios'
@@ -30,6 +32,7 @@ export default {
     Header,
     Footer,
     SideBar,
+    MenuBarSm,
     PageCover,
     ArticleIcon
   },
@@ -77,5 +80,29 @@ export default {
   height: 100px;
   margin: 12px 1px;
   padding: 0;
+}
+
+@media screen and (max-width: 420px) {
+  .travel-content {
+    width: 100vw;
+    min-width: 200px;
+    height: 70vh;
+    min-height: unset;
+  }
+  .image-container {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .icon-box {
+    width: 100px;
+    margin: 15px;
+  }
+  .icon-box:nth-last-of-type(1) {
+    padding-bottom: 140px;
+  }
+
 }
 </style>

@@ -1,26 +1,29 @@
 <template>
 <Header :pageTitle=pageTitle />
 <SideBar :displayedPage=pageTitle />
-<div class='slider-container'>
-  <i class="fa fa-caret-left button btn-left" @click="shiftToLeft"></i>
-  <img
-    class='image-container right'
-    v-for="image in images"
-    :key="image"
-    :id=image.id
-    :src=image.image
-    @load="displayInitImgs"
-  >
-  <i class="fa fa-caret-right button btn-right" @click="shiftToRight"></i>
-</div>
-<PageText :text1=text1 :text2=text2 :text3=text3 :textDesc=textDesc />
-<a href="https://www.instagram.com/aska62bean/" target="_blank" rel="noopener">
-  <div class="link-insta">
-    <p class="insta-msg">Visity My</p>
-    <i class="instagram-icon fa fa-instagram capt-insta" aria-hidden="true"></i>
-    <p class="insta-msg">Instagram!</p>
+<section class="capture-content">
+  <div class='slider-container'>
+    <i class="fa fa-caret-left button btn-left" @click="shiftToLeft"></i>
+    <img
+      class='image-container right'
+      v-for="image in images"
+      :key="image"
+      :id=image.id
+      :src=image.image
+      @load="displayInitImgs"
+    >
+    <i class="fa fa-caret-right button btn-right" @click="shiftToRight"></i>
   </div>
-</a>
+  <PageText :text1=text1 :text2=text2 :text3=text3 :textDesc=textDesc />
+  <a href="https://www.instagram.com/aska62bean/" target="_blank" rel="noopener">
+    <div class="link-insta">
+      <p class="insta-msg">Visity My</p>
+      <i class="instagram-icon fa fa-instagram capt-insta" aria-hidden="true"></i>
+      <p class="insta-msg">Instagram!</p>
+    </div>
+  </a>
+</section>
+<MenuBarSm :menuBarDisplayedPage=pageTitle />
 <Footer />
 </template>
 
@@ -28,6 +31,7 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
+import MenuBarSm from '@/components/MenuBarSm.vue'
 import PageText from '@/components/PageText.vue'
 import axios from 'axios'
 import captureImages from '../data/capture_imgs.json'
@@ -38,6 +42,7 @@ export default {
     Header,
     Footer,
     SideBar,
+    MenuBarSm,
     PageText
   },
   data() {
@@ -144,6 +149,13 @@ export default {
 </script>
 
 <style scoped>
+.capture-content {
+  width: 88vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .slider-container {
   width: 88vw;
   height: max-content;
@@ -222,5 +234,29 @@ export default {
   font-size: 15px;
   margin: -5px 0 -5px 0;
   padding: 0;
+}
+
+@media screen and (max-width: 420px) {
+  .slider-container {
+    margin: 60px auto 20px auto;
+  }
+  .button {
+    position: fixed;
+    top: 250px;
+    font-size: 50px;
+    color: rgba(102, 102, 23, .3);
+    margin: 0 25px;
+    transition-duration: .3s;
+  }
+  .btn-left {
+    left: 5px;
+  }
+  .btn-right {
+    right: 30px;
+  }
+  .link-insta {
+    right: 3vw;
+    top: 78vh;
+  }
 }
 </style>

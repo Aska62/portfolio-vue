@@ -7,6 +7,7 @@
     </div>
     <PageText :text1=text1 :text2=text2 :text3=text3 :text4=text4 :textDesc=textDesc />
   </section>
+  <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
 
@@ -14,6 +15,7 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
+import MenuBarSm from '@/components/MenuBarSm.vue'
 import PageText from '@/components/PageText.vue'
 
 export default {
@@ -22,6 +24,7 @@ export default {
     Header,
     Footer,
     SideBar,
+    MenuBarSm,
     PageText
   },
   data() {
@@ -58,6 +61,20 @@ export default {
   border: 0;
   outline: 0;
   box-shadow: 0px 5px 7px 6px rgba(69, 69, 3,.4);
+}
+
+@media screen and (max-width: 420px) {
+  .dive-content {
+    width: 100vw;
+  }
+  .dive-vid-container {
+    width: 90%;
+    margin: 60px auto 20px auto;
+  }
+  .video {
+    width: 90%;
+    height: 90%;
+  }
 }
 
 </style>

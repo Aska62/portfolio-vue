@@ -72,4 +72,13 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
+@media screen and (max-width: 420px) {
+  .footer {
+    z-index: 5;
+  }
+  .footer-box {
+    display: none;
+  }
+}
 </style>

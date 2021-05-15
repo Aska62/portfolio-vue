@@ -1,38 +1,38 @@
 <template>
   <Header :pageTitle="pageTitle" />
-  <SideBar :displayedPage=pageTitle />
+  <SideBar :displayedPage=pageTitle class="side-bar"/>
   <section class="about-content">
     <div class="profile-pic"></div>
     <div class="history-container">
-      <div class="hist hist1">
+      <div class="hist">
         <p class="year yearD">1986</p>
         <div class="hist-event">
           <div class="h-line lineD"></div>
           <p class="event eventD">Born in Saitama, Japan</p>
         </div>
       </div>
-      <div class="hist hist2">
+      <div class="hist">
         <p class="year yearB">2000</p>
         <div class="hist-event">
           <div class="h-line line"></div>
           <p class="event eventB">First travel abroad</p>
         </div>
       </div>
-      <div class="hist hist3">
+      <div class="hist">
         <p class="year yearB">2002</p>
         <div class="hist-event">
           <div class="h-line lineB"></div>
           <p class="event yearB">Start photography with SLR</p>
         </div>
       </div>
-      <div class="hist hist4">
+      <div class="hist">
         <p class="year yearA">2009</p>
         <div class="hist-event">
           <div class="h-line lineB"></div>
           <p class="event yearA">Graduate from International Christian University, Tokyo. Bachelor of Liberal Arts</p>
         </div>
       </div>
-      <div class="hist hist5">
+      <div class="hist">
         <p class="year yearB">2010</p>
         <div class="hist-event">
           <div class="h-line lineB"></div>
@@ -40,42 +40,42 @@
               Move to Singapore to work as a Japanese teacher</p>
         </div>
       </div>
-      <div class="hist hist6">
+      <div class="hist">
         <p class="year yearA">2013</p>
         <div class="hist-event">
           <div class="h-line lineA"></div>
           <p class="event eventA">Start writing & editing for a Japanese magazine</p>
         </div>
       </div>
-      <div class="hist hist7">
+      <div class="hist">
         <p class="year yearB">2015</p>
         <div class="hist-event">
           <div class="h-line lineB"></div>
           <p class="event eventB">Move back to Japan. Work for a web media as a writer/ editor/ translator</p>
         </div>
       </div>
-      <div class="hist hist8">
+      <div class="hist">
         <p class="year yearA">2017</p>
         <div class="hist-event">
           <div class="h-line lineA"></div>
           <p class="event eventA">Move to Bangkok, Thailand to work for an e-commerce as a writer/ editor/ translator</p>
         </div>
       </div>
-      <div class="hist hist9">
+      <div class="hist">
         <p class="year yearB">2020</p>
         <div class="hist-event">
           <div class="h-line lineB"></div>
           <p class="event eventBS">Start scuba diving. Get certified as an Advanced Open Water Diver</p>
         </div>
       </div>
-      <div class="hist hist10">
+      <div class="hist">
         <p class="year yearA">2021</p>
         <div class="hist-event">
           <div class="h-line lineA"></div>
           <p class="event eventA">Start coding. Get addicted</p>
         </div>
       </div>
-      <div class="hist hist11">
+      <div class="hist">
         <p class="year no-year"></p>
         <div class="hist-event">
           <div class="h-line no-line"></div>
@@ -84,6 +84,7 @@
       </div>
     </div>
   </section>
+  <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
 
@@ -91,13 +92,15 @@
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
+import MenuBarSm from '@/components/MenuBarSm.vue'
 
 export default {
   name: 'About',
   components: {
     Header,
     Footer,
-    SideBar
+    SideBar,
+    MenuBarSm
   },
   data() {
     return {
@@ -190,6 +193,41 @@ export default {
 
 .eventC {
     font-size: 25px;
+}
+
+@media screen and (max-width: 420px) {
+  .about-content {
+    width: 100vw;
+    min-width: 200px;
+    max-width: 420px;
+    z-index: 0;
+    overflow: scroll;
+  }
+  .profile-pic {
+    margin: 40px auto 30px auto;
+    background-size: 600px;
+    width: 120px;
+    height: 120px;
+    background-position-x: 380px;
+    background-position-y: -190px;
+    position: unset;
+  }
+  .history-container {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto 0 auto;
+  }
+  .eventA {
+    font-size: 30px;
+  }
+
+  .eventB {
+      font-size: 23px;
+  }
+
+  .eventC {
+      font-size: 20px;
+  }
 }
 
 </style>

@@ -29,4 +29,11 @@ export default {
 .page-cover-string {
   font-size: 28px;
 }
+
+@media screen and (max-width: 420px) {
+  .page-cover-text {
+    font-size: 24px;
+  }
+
+}
 </style>

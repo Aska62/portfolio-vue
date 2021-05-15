@@ -81,7 +81,21 @@ export default {
   color:#8c8c23;
   padding: 0;
   line-height: 1.2;
-  /* background-color: sandybrown; */
+}
+
+@media screen and (max-width: 420px) {
+  .text1 {
+    font-size: 28px;
+  }
+  .text2 {
+    font-size: 42px;
+  }
+  .text3, .text4 {
+    font-size: 58px;
+  }
+  .text-desc {
+    font-size: 20px;
+  }
 }
 
 </style>

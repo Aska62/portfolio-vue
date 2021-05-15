@@ -47,4 +47,26 @@ export default {
   font-style:italic;
   text-align: center;
 }
+
+@media screen and (max-width: 420px) {
+  .header {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .link-home {
+    /* width: 80vw; */
+    height: 40px;
+    font-size: 15px;
+    margin-top: 20px;
+    position:unset;
+  }
+  .page-title {
+    font-size: 65px;
+    margin: 0;
+  }
+}
 </style>
