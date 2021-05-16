@@ -6,26 +6,7 @@
     <i class="fa fa-envelope mail-icon"></i>
   </div>
   <div class="mail-sm">
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
-    <i class="fa fa-envelope mail-icon"></i>
+    <i class="fa fa-envelope mail-icon" v-for="n in 100" :key="n"></i>
   </div>
   <div class="form-wrapper">
     <p class="contact-msg">Drop Me a Message!</p>
@@ -62,7 +43,7 @@ export default {
 
 <style scoped>
 .contact-content {
-  width: 88vw;
+  width: calc(100% - 120px);
   min-width: 800px;
   height: 75vh;
   min-height: 700px;
@@ -74,19 +55,21 @@ export default {
 }
 
 .form-wrapper {
-  width: 70vw;
-  height: 420px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: absolute;
-  align-self: center;
-  padding: 5px 2px 5px 2px;
+  top: 20%;
 }
 .contact-mail {
   font-size: 58px;
   margin-bottom: 25px;
+  transition-duration: .6s;
+}
+.contact-mail:hover {
+  color: #eb7171;
 }
 .contact-msg {
   font-size: 45px;
@@ -112,19 +95,49 @@ export default {
   color:rgba(245, 245, 20, .5);
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 800px) {
+  .form-wrapper {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+  .mail {
+    display: none;
+  }
+  .mail-sm {
+    width: 100%;
+    height: 77vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .mail-icon {
+    font-size: 120px;
+    margin: 8px;
+    color:rgba(245, 245, 20, .2);
+  }
+  .mail-icon:hover {
+    color:rgba(245, 245, 20, .4);
+  }
+}
+
+@media screen and (max-width: 800px) {
   .contact-content {
     width: 100vw;
     min-width: 200px;
     height: 75vh;
     min-height: 300px;
+    margin: 0 auto;
   }
   .mail {
     display: none;
   }
   .mail-sm {
     width: 100vw;
-    height: 70vh;
+    height: 77vh;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -135,6 +148,9 @@ export default {
     font-size: 90px;
     margin: 5px;
     color:rgba(245, 245, 20, .2);
+  }
+  .mail-icon:hover {
+    color:rgba(245, 245, 20, .4);
   }
   .form-wrapper {
     width: 90vw;

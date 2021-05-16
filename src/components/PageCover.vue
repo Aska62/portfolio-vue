@@ -66,7 +66,7 @@ export default {
 <style scoped>
 .page-cover {
   z-index: 2;
-  width: 85vw;
+  width: 80vw;
   height: 86vh;
   position: fixed;
   top: 0;
@@ -92,37 +92,73 @@ export default {
 }
 
 .shrink {
-  width: 63px;
-  height: 63px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: #666617;
   position: fixed;
-  top: 0;
-  left: 75%;
+  margin: 0;
+  top: 30px;
+  left: 78%;
+  opacity: .8;
+}
+
+.shrink:hover {
+  cursor: pointer;
+  opacity: .6;
 }
 
 .close-icon2 {
-  width: 83px;
-  height: 83px;
-  font-size: 80px;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
   border-radius: 50%;
-  border: 5px solid #666617;
-  position: fixed;
-  top: 45px;
-  right: 220px;
+  border: 3px solid #666617;
+  position: absolute;
+  top: 40px;
+  right: 15%;
 }
 
 .close-icon2:hover {
   cursor: pointer;
   color: rgba(102, 102, 23, .7);
-  border: 5px solid rgba(102, 102, 23, .5);
+  border: 3px solid rgba(102, 102, 23, .5);
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+  .close-icon2 {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 800px) {
   .page-cover {
-    z-index: 5;
+    width: 90%;
+    height: fit-content;
+    min-height: 85vh;
+  }
+  .close-icon2 {
+    top: 10px;
+    right: 10px;
+  }
+  .shrink {
+    width: 38px;
+    height: 38px;
+    min-height: unset;
+    border-radius: 50%;
+    padding: 0;
+    position: fixed;
+    top: 10px;
+    left: 88%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-cover {
     width: 92%;
     height: fit-content;
+    min-height: 77vh;
     padding: 40px 2px;
     box-shadow: none;
   }
@@ -130,26 +166,24 @@ export default {
     width: 40px;
     height: 40px;
     font-size: 40px;
-    border: 3px solid #666617;
-    top: 25px;
-    right: 18px;
-  }
-  .close-icon2:hover {
-    border: 3px solid rgba(102, 102, 23, .5);
   }
   .shrink {
     width: 38px;
-    height: 38px;
+    min-height: 38px;
     border-radius: 50%;
     padding: 0;
     position: fixed;
-    top: 0;
-    left: 83%;
-    opacity: .8;
+    top: 10px;
+    left: 88%;
   }
-  .shrink:hover {
-    cursor: pointer;
-    opacity: .6;
+}
+@media screen and (max-width: 420px) {
+  .close-icon2 {
+    top: 25px;
+    right: 18px;
+  }
+  .shrink {
+    left: 88%;
   }
 }
 </style>

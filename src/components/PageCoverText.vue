@@ -48,6 +48,15 @@ export default {
   overflow: scroll;
 }
 
+@media screen and (min-width: 421px) and (max-width: 600px) {
+  .page-cover-text {
+    font-size: 25px;
+  }
+  .travel {
+    font-size: 22px;
+  }
+}
+
 @media screen and (max-width: 420px) {
   .page-cover-text {
     font-size: 23px;

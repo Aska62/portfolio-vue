@@ -65,7 +65,7 @@ export default {
 
 .footer-box {
   height: 100%;
-  width: 12vw;
+  width: 120px;
   background-color: #ffffbd;
   float: right;
   display: flex;
@@ -73,7 +73,7 @@ export default {
   align-items: center;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 800px) {
   .footer {
     z-index: 5;
   }

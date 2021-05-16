@@ -94,6 +94,20 @@ li a:hover {
   transition-duration: .5s;
 }
 
+@media screen and (min-width: 801px) and (max-width: 1284px) {
+  .category-text {
+    line-height: 1.3;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 800px) {
+  .category-text {
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+}
+
 @media screen and (max-width: 420px) {
   .category-container {
     display: flex;
@@ -108,7 +122,6 @@ li a:hover {
     font-size: 100px;
     line-height: 1;
     margin: 0;
-    color: #edede1;
   }
 
   .name {

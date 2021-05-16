@@ -112,7 +112,7 @@ export default {
 
 <style scoped>
 .about-content {
-  width: 88vw;
+  width: calc(100% - 120px);
   min-width: 800px;
   height: 75vh;
   min-height: 700px;
@@ -195,16 +195,34 @@ export default {
     font-size: 25px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 800px) {
+  .about-content {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .profile-pic {
+    background-size: 650px;
+    width: 130px;
+    height: 130px;
+    background-position-x: 413px;
+    background-position-y: -197px;
+    right: 3%;
+    top: 3%;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .about-content {
     width: 100vw;
     min-width: 200px;
-    max-width: 420px;
+    max-width: 600px;
     z-index: 0;
     overflow: scroll;
   }
   .profile-pic {
-    margin: 40px auto 30px auto;
+    margin: 20px auto;
     background-size: 600px;
     width: 120px;
     height: 120px;
@@ -212,6 +230,10 @@ export default {
     background-position-y: -190px;
     position: unset;
   }
+}
+
+@media screen and (max-width: 420px) {
+
   .history-container {
     width: 90%;
     max-width: 400px;

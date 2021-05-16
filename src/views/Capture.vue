@@ -150,19 +150,19 @@ export default {
 
 <style scoped>
 .capture-content {
-  width: 88vw;
+  width: calc(100vw - 120px);
   height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .slider-container {
-  width: 88vw;
+  width: 100%;
   height: max-content;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .image-container {
@@ -176,7 +176,7 @@ export default {
 .button {
   position: fixed;
   top: 350px;
-  font-size: 50px;
+  font-size: 80px;
   color: rgba(102, 102, 23, .3);
   margin: 0 25px;
   transition-duration: .3s;
@@ -189,11 +189,13 @@ export default {
 }
 
 .btn-left {
-  left: 70px;
+  left: 13%;
+  transform: translateX(-87%);
 }
 
 .btn-right {
-  right: 170px;
+  right: 20%;
+  transform: translateX(80%);
 }
 
 .right {
@@ -219,8 +221,8 @@ export default {
   flex-direction: column;
   align-items: center;
   position: absolute;
-  right: 12vw;
-  top: 60vh;
+  right: 120px;
+  top: 18px;
   color: rgba(201, 66, 66, .9);
   z-index: 5;
 }
@@ -236,7 +238,56 @@ export default {
   padding: 0;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+  .btn-left {
+    left: 5%;
+    transform: translateX(-95%);
+  }
+  .btn-right {
+    right: 17%;
+    transform: translateX(83%);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .capture-content {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .link-insta {
+    right: 0;
+    top: 30px;
+  }
+
+  .button {
+    top: 300px;
+    font-size: 80px;
+    margin: 0 25px;
+  }
+
+  .button:hover {
+    font-size: 100px;
+  }
+
+  .btn-left {
+    left: 5%;
+  }
+
+  .btn-right {
+    right: 5%;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 600px) {
+  .link-insta {
+    right: 0;
+    top: 120px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .slider-container {
     margin: 60px auto 20px auto;
   }
@@ -259,14 +310,23 @@ export default {
   }
   .link-insta {
     font-size: 50px;
-    right: 3vw;
-    top: 53vh;
-    right: 0;
+    right: -3%;
   }
   .insta-msg {
     font-size: 12px;
+    letter-spacing: -1px;
     margin: -3px 0 -3px 0;
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .link-insta {
+    right: -5%;
+    top: 300px;
+  }
+  .insta-msg {
+    display: none;
   }
 }
 </style>

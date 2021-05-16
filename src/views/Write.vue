@@ -63,8 +63,7 @@ export default {
 <style scoped>
 
 .write-content {
-  width: 88vw;
-  min-width: 800px;
+  width: calc(100vw - 120px);
   height: 75vh;
   min-height: 700px;
   z-index: 0;
@@ -85,7 +84,17 @@ export default {
   margin: 5px 10px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 801px) and (max-width: 900px) {
+  .writing-container {
+    width: 680px;
+  }
+  .icon-box {
+    width: 105px;
+    margin: 3px;
+  }
+}
+
+@media screen and (max-width: 800px) {
   .write-content {
     width: 100vw;
     min-width: 200px;
@@ -94,11 +103,35 @@ export default {
   }
   .writing-container {
     width: 100%;
-    margin-top: 20px;
+    margin: 20px auto 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
   }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .icon-box {
+    width: 105px;
+    margin: 15px;
+  }
+  .icon-box:nth-last-of-type(1) {
+    padding-bottom: 120px;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 600px) {
+  .icon-box {
+    width: 105px;
+    margin: 13px;
+  }
+  .icon-box:nth-last-of-type(1) {
+    padding-bottom: 130px;
+  }
+}
+
+@media screen and (max-width: 420px) {
   .icon-box {
     width: 100px;
     margin: 15px;

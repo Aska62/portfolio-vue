@@ -57,8 +57,11 @@ export default {
 
 <style scoped>
 .code-content {
-  width: 88vw;
+  width: calc(100% - 120px);
   z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .code-content:hover{
@@ -70,16 +73,21 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px auto 0 auto;
+  margin: 20px auto 50px auto;
+}
+
+.code-data:nth-last-of-type(1) {
+  margin-bottom: 120px;
 }
 
 .code-title {
-  font-size: 58px;
+  font-size: 45px;
   margin: 5px 0 8px 0;
+  transition-duration: .4s;
 }
 
 .code-title:hover{
-  color: red;
+  color: #eb7171;
   cursor: pointer;
 }
 
@@ -92,20 +100,44 @@ export default {
 }
 
 .github-link {
-  font-size: 28px;
+  font-size: 23px;
   color:#666617;
   text-decoration: none;
-  margin: 9px 0 130px 0;
+  margin-top: 9px;
 }
 
 .github-link:hover {
   cursor: pointer;
   color: #eb7171;
-  font-size: 45px;
   transition-duration: .4s;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .code-data {
+    margin: 50px auto 40px auto;
+    width: 90%;
+  }
+  .code-data:nth-last-of-type(1) {
+    margin-bottom: 140px;
+  }
+  .code-title {
+    font-size: 38px;
+    text-align: center;
+  }
+  .github-link {
+    font-size: 22px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 600px) {
+  .video {
+    width: 414px;
+    height: 233px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .code-data {
     margin: 50px auto 40px auto;
     width: 90%;
@@ -117,13 +149,16 @@ export default {
     font-size: 30px;
     text-align: center;
   }
-  .video {
-    width: 90%;
-    height: 90%;
-  }
   .github-link {
     font-size: 20px;
     margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .video {
+    width: 364px;
+    height: 204px;
   }
 }
 </style>

@@ -60,8 +60,7 @@ export default {
 
 <style scoped>
 .travel-content {
-  width: 88vw;
-  min-width: 800px;
+  width: calc(100vw - 120px);
   height: 75vh;
   min-height: 700px;
   z-index: 0;
@@ -69,7 +68,6 @@ export default {
 
 .image-container {
   width: 900px;
-  /* height: 600px; */
   margin: 45px auto 0 auto;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
@@ -83,7 +81,43 @@ export default {
   padding: 0;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 801px) and (max-width: 1020px) {
+  .image-container {
+    width: 680px;
+    height: fit-content;
+    grid-template-columns: auto auto auto auto auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .travel-content {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .travel-content {
+    width: 100vw;
+    min-width: 601px;
+    max-width: 680px;
+  }
+
+  .image-container {
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .icon-box {
+    margin: 12px;
+  }
+  .icon-box:nth-last-of-type(1) {
+    padding-bottom: 150px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .travel-content {
     width: 100vw;
     min-width: 200px;
@@ -97,13 +131,26 @@ export default {
     flex-direction: row;
     flex-wrap: wrap;
   }
+}
+
+@media screen and (max-width: 420px) {
   .icon-box {
-    width: 100px;
-    margin: 15px;
+    width: 80px;
+    height: 80px;
+    margin: 10px;
   }
   .icon-box:nth-last-of-type(1) {
-    padding-bottom: 140px;
+    padding-bottom: 120px;
   }
+}
 
+@media screen and (min-width: 421px) and (max-width: 600px) {
+  .icon-box {
+    width: 105px;
+    margin: 13px;
+  }
+  .icon-box:nth-last-of-type(1) {
+    padding-bottom: 130px;
+  }
 }
 </style>

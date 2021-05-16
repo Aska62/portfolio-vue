@@ -5,8 +5,8 @@
     <div class="dive-vid-container">
       <iframe class="video" src="https://youtube.com/embed/V8UJM5Ttflo" control></iframe>
     </div>
-    <PageText :text1=text1 :text2=text2 :text3=text3 :text4=text4 :textDesc=textDesc />
   </section>
+  <PageText :text1=text1 :text2=text2 :text3=text3 :text4=text4 :textDesc=textDesc />
   <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
@@ -43,16 +43,14 @@ export default {
 
 <style scoped>
 .dive-content {
-  width: 88vw;
-  height: 80vh;
+  width: calc(100% - 120px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
 }
 
 .dive-vid-container {
-  margin-top: 18px;
+  margin: 18px auto 0 auto;
 }
 
 .video {
@@ -63,17 +61,41 @@ export default {
   box-shadow: 0px 5px 7px 6px rgba(69, 69, 3,.4);
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 800px) {
   .dive-content {
     width: 100vw;
   }
+  .dive-content {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 720px) {
+  .video {
+    width: 591px;
+    height: 332px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .dive-vid-container {
-    width: 90%;
+    width: fit-content;
+    height: fit-content;
     margin: 40px auto 20px auto;
   }
+}
+
+@media screen and (min-width: 421px) and (max-width: 600px) {
   .video {
-    width: 100%;
-    height: 100%;
+    width: 414px;
+    height: 233px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .video {
+    width: 364px;
+    height: 204px;
   }
 }
 

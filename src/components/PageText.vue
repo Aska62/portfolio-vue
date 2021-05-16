@@ -47,12 +47,12 @@ export default {
 
 <style>
 .page-text-box {
-  width: 88vw;
+  width: calc(100vw - 120px);
   min-width: 800px;
-  height: 75vh;
+  height: fit-content;
   text-align: center;
   z-index: 0;
-  overflow: scroll;
+  margin-bottom: 120px;
 }
 .text-container {
   width: 100%;
@@ -95,12 +95,41 @@ export default {
   margin-left: 10%;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 800px) {
   .page-text-box {
     width: 100vw;
-    min-width: 200px;
-    height: 75vh;
   }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .page-text-box {
+    min-width: 600px;
+  }
+}
+
+@media screen and (min-width: 421px) and (max-width: 600px) {
+  .text1 {
+    font-size: 30px;
+  }
+  .text2{
+    font-size: 39px;
+  }
+  .text3, .text4 {
+    font-size: 52px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-text-box {
+    min-width: 200px;
+  }
+  .text-desc {
+    font-size: 22px;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 420px) {
   .text1 {
     font-size: 28px;
   }

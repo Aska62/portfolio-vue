@@ -65,7 +65,7 @@ export default {
 
 <style scoped>
 .side-bar {
-  width: 12vw;
+  width: 120px;
   height: 100vh;
   background-color:#fafae8;
   display: flex;
@@ -138,7 +138,7 @@ a:link {
   color:#d6d694;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 800px) {
   .side-bar {
     display: none;
   }

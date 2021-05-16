@@ -34,7 +34,7 @@ export default {
   color: #c94242;
   position: absolute;
   left: 20px;
-  top: 15px;
+  top: 10px;
 }
 
 .link-home:hover {
@@ -46,19 +46,37 @@ export default {
   font-size: 80px;
   font-style:italic;
   text-align: center;
+  margin: 0;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 601px) and (max-width: 1200px) {
+  .header {
+    align-items: flex-end;
+  }
+  .link-home {
+    width: 80px;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .link-home {
+    font-size: 14px;
+  }
+  .page-title {
+    font-size: 65px;
+  }
+}
+
+@media screen and (max-width: 600px) {
   .header {
     width: 100%;
-    height: max-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    margin: 0;
   }
   .link-home {
-    /* width: 80vw; */
     height: 40px;
     font-size: 15px;
     margin-top: 20px;

@@ -56,7 +56,7 @@ export default {
   display: none;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 800px) {
   .menu-container {
     width: 30px;
     height: 30px;
