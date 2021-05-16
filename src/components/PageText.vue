@@ -50,9 +50,10 @@ export default {
   width: calc(100vw - 120px);
   min-width: 800px;
   height: fit-content;
+  max-height: 250px;
   text-align: center;
   z-index: 0;
-  margin-bottom: 120px;
+  overflow: scroll;
 }
 .text-container {
   width: 100%;
@@ -98,6 +99,7 @@ export default {
 @media screen and (max-width: 800px) {
   .page-text-box {
     width: 100vw;
+    max-height: 300px;
   }
 }
 

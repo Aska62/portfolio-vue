@@ -322,8 +322,9 @@ export default {
 
 @media screen and (max-width: 420px) {
   .link-insta {
-    right: -5%;
-    top: 300px;
+    right: -8%;
+    top: unset;
+    bottom: 30px;
   }
   .insta-msg {
     display: none;

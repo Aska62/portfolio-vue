@@ -32,8 +32,8 @@ export default {
 
 <style scpoed>
 .home-content {
-  width: 88vw;
-  height: 90vh;
+  width: calc(100vw - 120px);
+  height: 88vh;
   display: flex;
   flex-direction: column;
 }
@@ -48,6 +48,8 @@ export default {
   flex-wrap: wrap;
   align-items: flex-start;
   list-style: none;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .categroy-link {
@@ -82,7 +84,8 @@ li a:hover {
 .name {
   position: fixed;
   top: 35%;
-  left: 30%;
+  left: 50%;
+  transform: translateX(-50%);
   color:#666617;
   font-size: 40px;
   font-style:italic;
@@ -97,31 +100,42 @@ li a:hover {
 @media screen and (min-width: 801px) and (max-width: 1284px) {
   .category-text {
     line-height: 1.3;
-    margin-bottom: 0;
+    margin: 0;
   }
 }
 
-@media screen and (min-width: 421px) and (max-width: 800px) {
+@media screen and (max-width: 800px) {
+  .home-content {
+    width: 100vw;
+  }
+  .category-container {
+    min-height: unset;
+    width: 90%;
+  }
+
   .category-text {
-    line-height: 1.2;
-    margin-bottom: 0;
+    font-size: 95px;
+    line-height: 1;
+    margin: 0;
   }
 }
 
 @media screen and (max-width: 420px) {
+  .home-content {
+    width: 100vw;
+  }
   .category-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: space-between;
-    width: 100%;
-    height: 80vh;
+    height: 88vh;
+    min-height: unset;
+    margin: 10px auto;
   }
-
   .category-text {
-    font-size: 100px;
+    font-size: 95px;
     line-height: 1;
-    margin: 0;
+    margin-bottom: 0;
   }
 
   .name {

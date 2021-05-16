@@ -77,8 +77,12 @@ export default {
   border-radius: 1%;
   width: 100px;
   height: 100px;
-  margin: 12px 1px;
+  margin: 12px auto;
   padding: 0;
+}
+
+.icon-box:nth-last-of-type(1) {
+  padding-bottom: 120px;
 }
 
 @media screen and (min-width: 801px) and (max-width: 1020px) {
@@ -91,29 +95,25 @@ export default {
 
 @media screen and (max-width: 800px) {
   .travel-content {
-    margin: 0 auto;
+    width: 100vw;
+  }
+  .image-container {
+    width: 95%;
+    margin: 20px auto;
   }
 }
 
 @media screen and (min-width: 601px) and (max-width: 800px) {
-  .travel-content {
-    width: 100vw;
-    min-width: 601px;
-    max-width: 680px;
-  }
-
   .image-container {
-    width: 98%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
   .icon-box {
-    margin: 12px;
-  }
-  .icon-box:nth-last-of-type(1) {
-    padding-bottom: 150px;
+    width: 100px;
+    margin: 12px 10px;
   }
 }
 
@@ -125,22 +125,12 @@ export default {
     min-height: unset;
   }
   .image-container {
-    width: 100%;
+    width: 90%;
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .icon-box {
-    width: 80px;
-    height: 80px;
-    margin: 10px;
-  }
-  .icon-box:nth-last-of-type(1) {
-    padding-bottom: 120px;
+    justify-content: space-evenly;
   }
 }
 
@@ -149,8 +139,16 @@ export default {
     width: 105px;
     margin: 13px;
   }
-  .icon-box:nth-last-of-type(1) {
-    padding-bottom: 130px;
+}
+@media screen and (max-width: 420px) {
+  .image-container {
+    width: 95%;
+  }
+  .icon-box {
+    width: 85px;
+    height: 80px;
+    margin: 10px;
   }
 }
+
 </style>

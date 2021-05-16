@@ -57,7 +57,7 @@ export default {
 
 <style scoped>
 .code-content {
-  width: calc(100% - 120px);
+  width: calc(100vw- 120px);
   z-index: 0;
   display: flex;
   flex-direction: column;
@@ -77,7 +77,7 @@ export default {
 }
 
 .code-data:nth-last-of-type(1) {
-  margin-bottom: 120px;
+  margin-bottom: 180px;
 }
 
 .code-title {

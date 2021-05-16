@@ -112,7 +112,7 @@ export default {
 
 <style scoped>
 .about-content {
-  width: calc(100% - 120px);
+  width: calc(100vw - 120px);
   min-width: 800px;
   height: 75vh;
   min-height: 700px;
@@ -195,12 +195,6 @@ export default {
     font-size: 25px;
 }
 
-@media screen and (max-width: 800px) {
-  .about-content {
-    margin: 0 auto;
-  }
-}
-
 @media screen and (min-width: 601px) and (max-width: 800px) {
   .profile-pic {
     background-size: 650px;
@@ -210,6 +204,11 @@ export default {
     background-position-y: -197px;
     right: 3%;
     top: 3%;
+  }
+  .about-content {
+    width: 100vw;
+    min-width: 600px;
+    margin: 0 auto;
   }
 }
 
@@ -237,7 +236,7 @@ export default {
   .history-container {
     width: 90%;
     max-width: 400px;
-    margin: 20px auto 0 auto;
+    margin: 20px auto 70px auto;
   }
   .eventA {
     font-size: 30px;
