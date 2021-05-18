@@ -33,20 +33,20 @@ export default {
 <style scpoed>
 .home-content {
   width: calc(100vw - 120px);
-  height: 88vh;
+  height: calc(100vh - 70px);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .category-container {
-  width: 90%;
-  height: 95%;
-  min-height: 800px;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content:space-evenly;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   list-style: none;
   margin: 0 auto;
   padding: 0;
@@ -72,7 +72,6 @@ li a:hover {
   font-size: 130px;
   font-style:italic;
   line-height: 2;
-  margin-bottom: 200px;
   transition-duration: 1s;
 }
 
@@ -84,6 +83,7 @@ li a:hover {
 .name {
   position: fixed;
   top: 35%;
+  transform: translateY(-70%);
   left: 50%;
   transform: translateX(-50%);
   color:#666617;
@@ -100,7 +100,6 @@ li a:hover {
 @media screen and (min-width: 801px) and (max-width: 1284px) {
   .category-text {
     line-height: 1.3;
-    margin: 0;
   }
 }
 
@@ -108,40 +107,26 @@ li a:hover {
   .home-content {
     width: 100vw;
   }
-  .category-container {
-    min-height: unset;
-    width: 90%;
-  }
-
   .category-text {
     font-size: 95px;
     line-height: 1;
-    margin: 0;
   }
 }
 
 @media screen and (max-width: 420px) {
-  .home-content {
-    width: 100vw;
-  }
   .category-container {
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 88vh;
-    min-height: unset;
-    margin: 10px auto;
+    margin: 0 auto;
   }
   .category-text {
-    font-size: 95px;
+    font-size: 88px;
     line-height: 1;
-    margin-bottom: 0;
   }
 
   .name {
     font-size: 40px;
-    position: fixed;
-    top: 30vh;
+    top: 28%;
   }
 }
 

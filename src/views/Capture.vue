@@ -144,6 +144,9 @@ export default {
         this.previousId--;
       }
     }
+  },
+  mounted () {
+    setInterval(this.shiftToRight, 7000);
   }
 }
 </script>
@@ -151,18 +154,20 @@ export default {
 <style scoped>
 .capture-content {
   width: calc(100vw - 120px);
-  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 78px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .slider-container {
   width: 100%;
-  height: max-content;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  position: relative;
 }
 
 .image-container {
@@ -174,11 +179,11 @@ export default {
 }
 
 .button {
-  position: fixed;
-  top: 350px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 80px;
   color: rgba(102, 102, 23, .3);
-  margin: 0 25px;
   transition-duration: .3s;
 }
 
@@ -189,23 +194,23 @@ export default {
 }
 
 .btn-left {
-  left: 13%;
-  transform: translateX(-87%);
+  left: 15%;
+  transform: translateX(-85%);
 }
 
 .btn-right {
-  right: 20%;
-  transform: translateX(80%);
+  right: 15%;
+  transform: translateX(85%);
 }
 
 .right {
-  position: fixed;
+  position: absolute;
   right: -2000px;
   opacity: 0;
 }
 
 .left {
-  position: fixed;
+  position: absolute;
   left: -2000px;
   opacity: 0;
 }
@@ -220,7 +225,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  position: fixed;
   right: 120px;
   top: 18px;
   color: rgba(201, 66, 66, .9);
@@ -228,8 +233,8 @@ export default {
 }
 .link-insta:hover {
   cursor: pointer;
-  font-size: 80px;
-  color: rgba(201, 66, 66, 1);
+  font-size: 70px;
+  color: rgba(201, 66, 66, .6);
   background-color:rgba(255, 255, 255, .5);
 }
 .insta-msg {
@@ -238,20 +243,20 @@ export default {
   padding: 0;
 }
 
-@media screen and (min-width: 801px) and (max-width: 1200px) {
+@media screen and (min-width: 801px) and (max-width: 1100px) {
   .btn-left {
-    left: 5%;
-    transform: translateX(-95%);
+    left: 10%;
+    transform: translateX(-90%);
   }
   .btn-right {
-    right: 17%;
-    transform: translateX(83%);
+    right: 10%;
+    transform: translateX(90%);
   }
 }
 
 @media screen and (max-width: 800px) {
   .capture-content {
-    margin: 0 auto;
+    width: 100vw;
   }
 }
 
@@ -259,24 +264,6 @@ export default {
   .link-insta {
     right: 0;
     top: 30px;
-  }
-
-  .button {
-    top: 300px;
-    font-size: 80px;
-    margin: 0 25px;
-  }
-
-  .button:hover {
-    font-size: 100px;
-  }
-
-  .btn-left {
-    left: 5%;
-  }
-
-  .btn-right {
-    right: 5%;
   }
 }
 
@@ -292,21 +279,11 @@ export default {
     margin: 60px auto 20px auto;
   }
   .button {
-    position: fixed;
-    top: 250px;
     font-size: 50px;
-    color: rgba(102, 102, 23, .3);
-    margin: 0 25px;
     transition-duration: .3s;
   }
   .button:hover {
-    font-size: 50px;
-  }
-  .btn-left {
-    left: 0;
-  }
-  .btn-right {
-    right: 28px;
+    font-size: 55px;
   }
   .link-insta {
     font-size: 50px;

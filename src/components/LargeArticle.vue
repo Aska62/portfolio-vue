@@ -1,6 +1,6 @@
 <template>
 <section>
-  <div class="large-article-box" v-bind:class="{ showLargeArticle: showArticle }">
+  <div class="large-article-box" v-bind:class="{ showLargeArticle: showArticle, visible: isVisible }">
     <i class="fa fa-times close-icon" @click="hideArticle"></i>
     <p class="image-desc">{{ imageDesc }}</p>
     <img class="large-article" :src=imageUrl>
@@ -21,18 +21,31 @@ export default {
       default: ''
     }
   },
-  data: function() {
+  data() {
     return {
       showArticle: false,
+      isVisible: false,
     }
   },
   methods: {
-    displayArticle() {
-      this.showArticle = true;
+    changeOpacity() {
+      if (this.isVisible === false) {
+        this.isVisible = true;
+      } else {
+        this.isVisible = false;
+      }
+    },
+    changeDisplay() {
+      if (this.showArticle == false) {
+        this.showArticle = true;
+      } else {
+        this.showArticle = false;
+      }
     },
     hideArticle() {
-      this.showArticle = false;
-    }
+      this.changeOpacity();
+      setTimeout(this.changeDisplay, 800);
+    },
   }
 }
 </script>
@@ -41,8 +54,11 @@ export default {
 
 .large-article-box{
   display: none;
+  opacity: 0;
   width: fit-content;
-  max-width: 800px;
+  max-width: 95vw;
+  height: fit-content;
+  max-height: 98vh;
   background-color:rgba(255, 255, 189, .9);
   box-shadow: 2px 2px 6px 8px rgba(69, 69, 3,.4);
   border-radius: 8px;
@@ -50,20 +66,25 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 6;
-  padding-top: 60px;
+  z-index: 7;
+  padding: 60px 0 0 0;
+  transition-duration: .8s;
 }
 .large-article {
-  max-width: 700px;
-  max-height: 700px;
+  max-width: calc(100vw - 170px);
+  max-height: calc(100vh - 150px);
   margin: 5px 40px 15px 40px;
   padding: 0;
   text-align: center;
-  z-index: 4;
+  /* z-index: 4; */
 }
 
 .showLargeArticle {
   display: block;
+}
+
+.visible {
+  opacity: 1;
 }
 
 .close-icon {
@@ -93,37 +114,16 @@ export default {
   transform: translateX(-50%);
 }
 
-@media screen and (min-width: 601px) and (max-width: 800px) {
-  .large-article-box{
-    max-width: 95vw;
-  }
-  .large-article {
-    max-width: 95%;
-    max-height: 700px;
-    margin: 0 20px 5px 10px;
-    text-align: center;
-  }
-}
-
 @media screen and (max-width: 600px) {
-  .large-article-box{
-    max-width: 95vw;
-    padding-top: 54px;
-  }
   .large-article {
-    max-width: 95%;
-    max-height: 700px;
-    margin: 0 20px 5px 10px;
-    text-align: center;
+    max-width: calc(100vw - 100px);
+    max-height: calc(100vh - 80px);
   }
-
   .close-icon {
     border: 3px solid #666617;
   }
 
   .close-icon:hover {
-    cursor: pointer;
-    color: rgba(102, 102, 23, .7);
     border: 3px solid rgba(102, 102, 23, .5);
   }
 

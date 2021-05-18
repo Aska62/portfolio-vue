@@ -61,8 +61,6 @@ export default {
 <style scoped>
 .travel-content {
   width: calc(100vw - 120px);
-  height: 75vh;
-  min-height: 700px;
   z-index: 0;
 }
 
@@ -71,6 +69,7 @@ export default {
   margin: 45px auto 0 auto;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
+  padding-bottom: 100px;
 }
 
 .icon-box {
@@ -78,11 +77,6 @@ export default {
   width: 100px;
   height: 100px;
   margin: 12px auto;
-  padding: 0;
-}
-
-.icon-box:nth-last-of-type(1) {
-  padding-bottom: 120px;
 }
 
 @media screen and (min-width: 801px) and (max-width: 1020px) {

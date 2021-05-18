@@ -114,10 +114,7 @@ export default {
 .about-content {
   width: calc(100vw - 120px);
   min-width: 800px;
-  height: 75vh;
-  min-height: 700px;
   z-index: 0;
-  overflow: scroll;
 }
 
 .profile-pic {
@@ -145,6 +142,10 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+}
+
+.hist:nth-last-of-type(1) {
+  margin-bottom: 78px;
 }
 
 .year {
@@ -184,18 +185,23 @@ export default {
 }
 
 .eventA {
-    font-size: 35px;
+  font-size: 35px;
 }
 
 .eventB {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 .eventC {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 @media screen and (min-width: 601px) and (max-width: 800px) {
+  .about-content {
+    width: 100vw;
+    min-width: 600px;
+    margin: 0 auto;
+  }
   .profile-pic {
     background-size: 650px;
     width: 130px;
@@ -205,11 +211,6 @@ export default {
     right: 3%;
     top: 3%;
   }
-  .about-content {
-    width: 100vw;
-    min-width: 600px;
-    margin: 0 auto;
-  }
 }
 
 @media screen and (max-width: 600px) {
@@ -218,7 +219,6 @@ export default {
     min-width: 200px;
     max-width: 600px;
     z-index: 0;
-    overflow: scroll;
   }
   .profile-pic {
     margin: 20px auto;

@@ -65,7 +65,6 @@ export default {
 
 <style scoped>
 .page-cover {
-  z-index: 2;
   width: 80vw;
   height: 86vh;
   position: fixed;
@@ -81,6 +80,7 @@ export default {
   align-items: center;
   text-align: center;
   transition-duration: 1.2s;
+  z-index: 7;
 }
 
 .fade {
@@ -134,7 +134,7 @@ export default {
 
 @media screen and (min-width: 421px) and (max-width: 800px) {
   .page-cover {
-    width: 90%;
+    width: 90vw;
     height: fit-content;
     min-height: 85vh;
   }

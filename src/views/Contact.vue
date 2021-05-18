@@ -43,114 +43,90 @@ export default {
 
 <style scoped>
 .contact-content {
-  width: calc(100% - 120px);
-  min-width: 800px;
-  height: 75vh;
-  min-height: 700px;
+  width: calc(100vw - 120px);
+  height: calc(100vh - 140px);
   z-index: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 }
 
 .form-wrapper {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.contact-msg {
+  font-size: 45px;
+  line-height: 1;
+  margin: 0;
 }
 .contact-mail {
   font-size: 58px;
-  margin-bottom: 25px;
+  line-height: 1;
+  margin: 20px auto 40px auto;
   transition-duration: .6s;
 }
 .contact-mail:hover {
   color: #eb7171;
 }
-.contact-msg {
-  font-size: 45px;
-}
+
 .contact-phone {
   font-size: 40px;
   margin: 0;
+  line-height: .9;
 }
 .mail {
-  width: 70vw;
-  height: 420px;
-  padding: 0;
-  font-size: 700px;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .mail-sm {
+  width: 100%;
+  height: 100%;
   display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 .mail-icon {
-  color:rgba(245, 245, 20, .5);
+  font-size: 600px;
+  color:rgba(245, 245, 20, .2);
+}
+.mail-icon:hover {
+  color:rgba(245, 245, 20, .4);
 }
 
-@media screen and (max-width: 800px) {
-  .form-wrapper {
-    margin: 0;
-  }
-}
-
-@media screen and (min-width: 801px) and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
   .mail {
     display: none;
-  }
-  .mail-sm {
-    width: 100%;
-    height: 77vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
   }
   .mail-icon {
     font-size: 120px;
     margin: 8px;
-    color:rgba(245, 245, 20, .2);
   }
-  .mail-icon:hover {
-    color:rgba(245, 245, 20, .4);
+  .mail-sm {
+    display: flex;
   }
 }
 
 @media screen and (max-width: 800px) {
   .contact-content {
     width: 100vw;
-    min-width: 200px;
-    height: 75vh;
-    min-height: 300px;
-    margin: 0 auto;
-  }
-  .mail {
-    display: none;
-  }
-  .mail-sm {
-    width: 100vw;
-    height: 77vh;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
   }
   .mail-icon {
     font-size: 90px;
     margin: 5px;
-    color:rgba(245, 245, 20, .2);
-  }
-  .mail-icon:hover {
-    color:rgba(245, 245, 20, .4);
   }
   .form-wrapper {
     width: 90vw;

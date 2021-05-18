@@ -5,8 +5,8 @@
     <div class="dive-vid-container">
       <iframe class="video" src="https://youtube.com/embed/V8UJM5Ttflo" control></iframe>
     </div>
+    <PageText :text1=text1 :text2=text2 :text3=text3 :text4=text4 :textDesc=textDesc />
   </section>
-  <PageText :text1=text1 :text2=text2 :text3=text3 :text4=text4 :textDesc=textDesc />
   <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
@@ -47,6 +47,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 78px;
+  overflow: scroll;
 }
 
 .dive-vid-container {

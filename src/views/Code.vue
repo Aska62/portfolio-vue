@@ -57,11 +57,12 @@ export default {
 
 <style scoped>
 .code-content {
-  width: calc(100vw- 120px);
+  width: calc(100vw - 120px);
   z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 78px;
 }
 
 .code-content:hover{
@@ -74,10 +75,6 @@ export default {
   flex-direction: column;
   align-items: center;
   margin: 20px auto 50px auto;
-}
-
-.code-data:nth-last-of-type(1) {
-  margin-bottom: 180px;
 }
 
 .code-title {
@@ -112,13 +109,15 @@ export default {
   transition-duration: .4s;
 }
 
+@media screen and (max-width: 800px) {
+  .code-content {
+    width: 100vw;
+  }
+}
+
 @media screen and (min-width: 601px) and (max-width: 800px) {
   .code-data {
-    margin: 50px auto 40px auto;
     width: 90%;
-  }
-  .code-data:nth-last-of-type(1) {
-    margin-bottom: 140px;
   }
   .code-title {
     font-size: 38px;
@@ -139,11 +138,7 @@ export default {
 
 @media screen and (max-width: 600px) {
   .code-data {
-    margin: 50px auto 40px auto;
     width: 90%;
-  }
-  .code-data:nth-last-of-type(1) {
-    margin-bottom: 160px;
   }
   .code-title {
     font-size: 30px;

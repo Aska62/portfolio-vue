@@ -20,8 +20,8 @@ export default {
 
 <style scoped>
 .header {
-  height: 10vh;
-  width: 90vw;
+  height: 70px;
+  width: calc(100vw - 120px);
   position:relative;
   display: flex;
   align-items: center;
@@ -34,7 +34,8 @@ export default {
   color: #c94242;
   position: absolute;
   left: 20px;
-  top: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .link-home:hover {
@@ -50,11 +51,14 @@ export default {
 }
 
 @media screen and (min-width: 601px) and (max-width: 1200px) {
-  .header {
-    align-items: flex-end;
-  }
   .link-home {
     width: 80px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    width: 100vw;
   }
 }
 
@@ -69,22 +73,24 @@ export default {
 
 @media screen and (max-width: 600px) {
   .header {
-    width: 100%;
-    display: flex;
+    height: 85px;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    margin: 0;
   }
   .link-home {
     height: 40px;
     font-size: 15px;
-    margin-top: 20px;
     position:unset;
+    left: unset;
+    top: unset;
+    transform: unset;
+    line-height: 1;
   }
   .page-title {
     font-size: 65px;
-    margin: 0;
+    line-height: 1;
   }
 }
 </style>

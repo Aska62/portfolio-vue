@@ -54,8 +54,15 @@ export default {
     hideCover() {
       this.$refs.cover.hideCover();
     },
-    displayArticle () {
-      this.$refs.largeArticle.displayArticle();
+    displayArticle() {
+      this.changeDisplay();
+      setTimeout(this.changeOpacity, 100);
+    },
+    changeOpacity() {
+      this.$refs.largeArticle.changeOpacity();
+    },
+    changeDisplay() {
+      this.$refs.largeArticle.changeDisplay();
     }
   },
   mounted() {

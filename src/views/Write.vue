@@ -64,15 +64,13 @@ export default {
 
 .write-content {
   width: calc(100vw - 120px);
-  height: 75vh;
-  min-height: 700px;
   z-index: 0;
 }
 
 .writing-container {
   width: 700px;
   height: 600px;
-  margin: 45px auto 0 auto;
+  margin: 45px auto 120px auto;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
 }
@@ -87,6 +85,7 @@ export default {
 @media screen and (min-width: 801px) and (max-width: 900px) {
   .writing-container {
     width: 680px;
+    height: fit-content;
   }
   .icon-box {
     width: 105px;
@@ -97,13 +96,11 @@ export default {
 @media screen and (max-width: 800px) {
   .write-content {
     width: 100vw;
-    min-width: 200px;
-    height: 70vh;
-    min-height: unset;
   }
   .writing-container {
-    width: 100%;
-    margin: 20px auto 0 auto;
+    width: 95%;
+    height: fit-content;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -116,9 +113,6 @@ export default {
     width: 105px;
     margin: 15px;
   }
-  .icon-box:nth-last-of-type(1) {
-    padding-bottom: 120px;
-  }
 }
 
 @media screen and (min-width: 421px) and (max-width: 600px) {
@@ -126,18 +120,12 @@ export default {
     width: 105px;
     margin: 13px;
   }
-  .icon-box:nth-last-of-type(1) {
-    padding-bottom: 130px;
-  }
 }
 
 @media screen and (max-width: 420px) {
   .icon-box {
     width: 100px;
     margin: 15px;
-  }
-  .icon-box:nth-last-of-type(1) {
-    padding-bottom: 140px;
   }
 }
 
