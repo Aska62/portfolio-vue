@@ -173,7 +173,6 @@ export default {
 .image-container {
   width: 600px;
   max-width: 64vw;
-  max-height: 50vh;
   box-shadow: 0px 5px 7px 6px rgba(69, 69, 3,.4);
   transition: all 1s ease-in-out;
 }

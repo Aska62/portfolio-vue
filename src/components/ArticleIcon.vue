@@ -11,6 +11,8 @@
   <LargeArticle
     :imageUrl="imageUrl"
     :imageDesc="imageDesc"
+    :imageId="imageId"
+    :currentPage="currentPage"
     class="large-article"
     ref="largeArticle"
   />
@@ -26,15 +28,11 @@ export default {
     ArticleIconCover,
     LargeArticle
   },
-  data: function() {
-    return {
-      imageLoaded: true,
-    }
-  },
   data() {
     return {
       imageUrl: "",
-      imageDesc: ""
+      imageDesc: "",
+      imageLoaded: true,
     }
   },
   props: {
@@ -43,6 +41,14 @@ export default {
       default: '#'
     },
     imageDesc: {
+      type: String,
+      default: ''
+    },
+    imageId: {
+      type: String,
+      dafault: ''
+    },
+    currentPage: {
       type: String,
       default: ''
     }

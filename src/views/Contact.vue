@@ -64,6 +64,7 @@ export default {
   top: 50%;
   transform: translateY(-50%);
 }
+
 .contact-msg {
   font-size: 45px;
   line-height: 1;
@@ -78,7 +79,6 @@ export default {
 .contact-mail:hover {
   color: #eb7171;
 }
-
 .contact-phone {
   font-size: 40px;
   margin: 0;
@@ -107,6 +107,24 @@ export default {
   color:rgba(245, 245, 20, .4);
 }
 
+@keyframes form-load {
+  0% {
+    background-position: 0 0vh;
+  }
+  100% {
+    background-position: 0 28vh;
+  }
+}
+
+@keyframes form-load-sm {
+  0% {
+    background-position: 0 -400px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .mail {
     display: none;
@@ -117,6 +135,16 @@ export default {
   }
   .mail-sm {
     display: flex;
+  }
+}
+
+@media screen and (min-width: 801px) {
+  .form-wrapper {
+    background: linear-gradient(to bottom, rgba(102, 102, 23, 1)32%, rgba(102, 102, 23, 0)35%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-position: 0 0vh;
+    animation: form-load 3s ease-in forwards;
   }
 }
 
@@ -135,6 +163,12 @@ export default {
     justify-content: space-between;
     position: fixed;
     top: 260px;
+    background: linear-gradient(to bottom, rgba(102, 102, 23, 1)0%, rgba(102, 102, 23, 1)48%, rgba(102, 102, 23, 0)52%, rgba(102, 102, 23, 0)100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100vw 600px;
+    background-position: 0 -400px;
+    animation: form-load-sm 3s ease-in forwards;
   }
   .contact-mail {
     font-size: 28px;

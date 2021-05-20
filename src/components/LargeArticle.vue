@@ -3,20 +3,36 @@
   <div class="large-article-box" v-bind:class="{ showLargeArticle: showArticle, visible: isVisible }">
     <i class="fa fa-times close-icon" @click="hideArticle"></i>
     <p class="image-desc">{{ imageDesc }}</p>
-    <img class="large-article" :src=imageUrl>
+    <img class="large-article" :id=imageId :src=imageUrl @mouseover="imageZoom" >
+    <div v-if="isWritePage" >
+      <Zoomer :imageId=imageId ref="zoomer" :lens=lens :resultWindow=resultWindow />
+    </div>
   </div>
 </section>
 </template>
 
 <script>
+import Zoomer from '@/components/Zoomer'
+
 export default {
   name: 'LargeArticle',
+  components: {
+    Zoomer
+  },
   props: {
     imageUrl: {
-      type: URL,
+      type: String,
       default: '#'
     },
     imageDesc: {
+      type: String,
+      default: ''
+    },
+    imageId: {
+      type: String,
+      dafault: ''
+    },
+    currentPage: {
       type: String,
       default: ''
     }
@@ -25,6 +41,9 @@ export default {
     return {
       showArticle: false,
       isVisible: false,
+      isWritePage: false,
+      lens: {},
+      resultWindow: {}
     }
   },
   methods: {
@@ -36,7 +55,7 @@ export default {
       }
     },
     changeDisplay() {
-      if (this.showArticle == false) {
+      if (this.showArticle === false) {
         this.showArticle = true;
       } else {
         this.showArticle = false;
@@ -46,6 +65,22 @@ export default {
       this.changeOpacity();
       setTimeout(this.changeDisplay, 800);
     },
+    getLens() {
+      this.$refs.zoomer.getLens();
+    },
+    getResultWindow() {
+      this.$refs.zoomer.getResultWindow();
+    },
+    imageZoom() {
+      this.$refs.zoomer.imageZoom();
+    }
+  },
+  mounted() {
+    if(this.currentPage == "Write") {
+      this.isWritePage = true;
+    } else {
+      this.isWritePage = false;
+    }
   }
 }
 </script>
@@ -76,7 +111,6 @@ export default {
   margin: 5px 40px 15px 40px;
   padding: 0;
   text-align: center;
-  /* z-index: 4; */
 }
 
 .showLargeArticle {

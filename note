@@ -1,2 +1,16 @@
 DB: portfolio_db
 tables: articles, capture_imgs, travel_imgs, videos
+
+
+-----
+home - animation
+
+before page load:
+(screen width : 420px and less)
+category-text(smp-before-loading) {
+    position: fiexed;
+    bottom: 100vh;
+    line-height: 1;
+}
+
+

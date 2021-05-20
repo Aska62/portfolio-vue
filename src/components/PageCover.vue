@@ -1,5 +1,8 @@
 <template>
-  <section class="page-cover" v-bind:class="{ fade: isFading, shrink: hasShrank }" @click="enlargeCover">
+  <section
+  class="page-cover"
+  v-bind:class="{ fade: isFading, shrink: hasShrank, pageCoverInitLoad: isInitLoad }"
+  @click="enlargeCover">
     <i class="fa fa-times close-icon2" @click="shrinkCover" v-bind:class="{ hidden: isHidden}"></i>
     <PageCoverTitle
       :pageCoverTitle="pageCoverTitle"
@@ -43,6 +46,7 @@ export default {
       isFading: false,
       isHidden: false,
       hasShrank: false,
+      isInitLoad: true,
     }
   },
   methods: {
@@ -57,6 +61,13 @@ export default {
       if (this.isHidden === true) {
         this.hasShrank = false;
         this.isHidden = false;
+      }
+    },
+    loadCover() {
+      if (this.isInitLoad === true) {
+        setTimeout(() => {
+          this.isInitLoad = false;
+        }, 2000);
       }
     }
   }
@@ -95,17 +106,21 @@ export default {
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: #666617;
+  background-color: rgba(102, 102, 23, .6);
+  box-shadow: unset;
   position: fixed;
   margin: 0;
   top: 30px;
   left: 78%;
-  opacity: .8;
+}
+
+.pageCoverInitLoad {
+  animation: loadCover .5s ease-in forwards;
 }
 
 .shrink:hover {
   cursor: pointer;
-  opacity: .6;
+  background-color: rgba(102, 102, 23, .8);
 }
 
 .close-icon2 {
@@ -123,6 +138,15 @@ export default {
   cursor: pointer;
   color: rgba(102, 102, 23, .7);
   border: 3px solid rgba(102, 102, 23, .5);
+}
+
+@keyframes loadCover {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {

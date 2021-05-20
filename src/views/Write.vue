@@ -7,7 +7,7 @@
   <section class="write-content">
     <div class="writing-container">
       <div class="icon-box" v-for="image in images" :key="image">
-        <ArticleIcon :image=image.image />
+        <ArticleIcon :image=image.image :imageId=image.id :currentPage=pageTitle />
       </div>
     </div>
   </section>
