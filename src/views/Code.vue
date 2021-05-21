@@ -11,6 +11,7 @@
       <a class="github-link" :href="data.link" target="_blank" rel="noopener">View Code on GitHub</a>
     </div>
   </section>
+  <ToPageTopBtn />
   <SideBar :displayedPage=pageTitle />
   <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
@@ -22,6 +23,7 @@ import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
 import MenuBarSm from '@/components/MenuBarSm.vue'
 import PageCover from '@/components/PageCover.vue'
+import ToPageTopBtn from '@/components/ToPageTopBtn.vue'
 import axios from 'axios'
 import videosData from "../data/videos.json"
 
@@ -32,7 +34,8 @@ export default {
     Footer,
     SideBar,
     MenuBarSm,
-    PageCover
+    PageCover,
+    ToPageTopBtn
   },
   data() {
     return {

@@ -109,16 +109,16 @@ export default {
 
 @keyframes form-load {
   0% {
-    background-position: 0 0vh;
+    background-position: 0 -2000px;
   }
   100% {
-    background-position: 0 28vh;
+    background-position: 0 0;
   }
 }
 
 @keyframes form-load-sm {
   0% {
-    background-position: 0 -400px;
+    background-position: 0 -2500px;
   }
   100% {
     background-position: 0 0;
@@ -140,10 +140,11 @@ export default {
 
 @media screen and (min-width: 801px) {
   .form-wrapper {
-    background: linear-gradient(to bottom, rgba(102, 102, 23, 1)32%, rgba(102, 102, 23, 0)35%);
+    background: linear-gradient(to bottom, rgba(102, 102, 23, 1)20%, rgba(102, 102, 23, 0)65%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-position: 0 0vh;
+    background-size: 100vw 300vh;
+    background-position: 0 -2000px;
     animation: form-load 3s ease-in forwards;
   }
 }
@@ -163,11 +164,11 @@ export default {
     justify-content: space-between;
     position: fixed;
     top: 260px;
-    background: linear-gradient(to bottom, rgba(102, 102, 23, 1)0%, rgba(102, 102, 23, 1)48%, rgba(102, 102, 23, 0)52%, rgba(102, 102, 23, 0)100%);
+    background: linear-gradient(to bottom, rgba(102, 102, 23, 1)60%, rgba(102, 102, 23, 0)75%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-size: 100vw 600px;
-    background-position: 0 -400px;
+    background-size: 100vw 300vh;
+    background-position: 0 -2500px;
     animation: form-load-sm 3s ease-in forwards;
   }
   .contact-mail {

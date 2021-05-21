@@ -84,6 +84,7 @@
       </div>
     </div>
   </section>
+  <ToPageTopBtn />
   <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
@@ -93,6 +94,7 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
 import MenuBarSm from '@/components/MenuBarSm.vue'
+import ToPageTopBtn from '@/components/ToPageTopBtn.vue'
 
 export default {
   name: 'About',
@@ -100,7 +102,8 @@ export default {
     Header,
     Footer,
     SideBar,
-    MenuBarSm
+    MenuBarSm,
+    ToPageTopBtn
   },
   data() {
     return {
@@ -135,6 +138,21 @@ export default {
   width: 80%;
   max-width: 1000px;
   margin: 20px auto 0 auto;
+  background: linear-gradient(to bottom, rgba(102, 102, 23, 1)50%,  rgba(102, 102, 23, 0)51%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100vw 200%;
+  background-position: 0 -2000px;
+  animation: content-load 3s ease-in-out forwards;
+}
+
+@keyframes content-load {
+  0% {
+    background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .hist {

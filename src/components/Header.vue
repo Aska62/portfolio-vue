@@ -1,7 +1,7 @@
 <template>
   <section class="header">
-    <router-link to="/" class="link-home"><h2>Aska Takahashi</h2></router-link>
-    <h1 class="page-title" v-bind:class="{ titlePreload: beforeLoading }">{{ pageTitle }}</h1>
+    <router-link to="/" class="link-home"><h2 id="page-top">Aska Takahashi</h2></router-link>
+    <h1 class="page-title" v-bind:class="{ titlePreload: beforeLoading, titleFlash: titleFlash }">{{ pageTitle }}</h1>
   </section>
 </template>
 
@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       beforeLoading: true,
+      titleFlash: false,
     }
   },
   props: {
@@ -24,6 +25,12 @@ export default {
     setTimeout(() => {
       this.beforeLoading = false;
     }, 2000);
+    setInterval(() => {
+        this.titleFlash = true;
+      }, 8000);
+    setInterval(() => {
+    this.titleFlash = false;
+    }, 9000);
   }
 }
 </script>
@@ -60,7 +67,7 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(to right, #666617 0%, #e3e327 30%, #666617 60%);
+  background: linear-gradient(-45deg, #666617 50%, #e3e327 55%, #666617 60%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 400% 100%;
@@ -74,15 +81,16 @@ export default {
 
 .page-title:hover {
   cursor: pointer;
-  animation: title-shine 8s linear infinite;
+  animation: title-shine 1s ease-in-out forwards;
+}
+
+.titleFlash {
+  animation: title-shine 1s ease-in-out forwards;
 }
 
 @keyframes title-shine {
   0% {
     background-position: 100% 0;
-  }
-  30% {
-    background-position: 0 0;
   }
   100% {
     background-position: 0 0;
@@ -170,6 +178,12 @@ export default {
   .titlePreload {
     left: -150vw;
     animation: load-sm 2.5s ease-in-out forwards;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .link-home {
+    font-size: 13px;
   }
 }
 </style>

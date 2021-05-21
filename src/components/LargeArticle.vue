@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import Zoomer from '@/components/Zoomer'
+// import Zoomer from '@/components/Zoomer'
 
 export default {
   name: 'LargeArticle',
-  components: {
-    Zoomer
-  },
+  // components: {
+  //   Zoomer
+  // },
   props: {
     imageUrl: {
       type: String,
