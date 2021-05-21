@@ -51,6 +51,10 @@ export default {
   top: -150%;
   transform: translateY(-50%);
   animation: load 3s ease-in-out forwards;
+  -webkit-animation: load 3s ease-in-out forwards;
+  -moz-animation: load 3s ease-in-out forwards;
+  -o-animation: load 3s ease-in-out forwards;
+  -ms-animation: load 3s ease-in-out forwards;
 }
 
 .link-home:hover {
@@ -68,7 +72,7 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
   background: linear-gradient(-45deg, #666617 50%, #e3e327 55%, #666617 60%);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 400% 100%;
   background-position: 100% 0;
@@ -77,15 +81,27 @@ export default {
 .titlePreload {
   top: -150vh;
   animation: load 2s ease-in-out forwards;
+  -webkit-animation: load 2s ease-in-out forwards;
+  -moz-animation: load 2s ease-in-out forwards;
+  -o-animation: load 2s ease-in-out forwards;
+  -ms-animation: load 2s ease-in-out forwards;
 }
 
 .page-title:hover {
   cursor: pointer;
   animation: title-shine 1s ease-in-out forwards;
+  -webkit-animation: title-shine 1s ease-in-out forwards;
+  -moz-animation: title-shine 1s ease-in-out forwards;
+  -o-animation: title-shine 1s ease-in-out forwards;
+  -ms-animation: title-shine 1s ease-in-out forwards;
 }
 
 .titleFlash {
   animation: title-shine 1s ease-in-out forwards;
+  -webkit-animation: title-shine 1s ease-in-out forwards;
+  -moz-animation: title-shine 1s ease-in-out forwards;
+  -o-animation: title-shine 1s ease-in-out forwards;
+  -ms-animation: title-shine 1s ease-in-out forwards;
 }
 
 @keyframes title-shine {
@@ -97,7 +113,103 @@ export default {
   }
 }
 
+@-webkit-keyframes title-shine {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-moz-keyframes title-shine {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-o-keyframes title-shine {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-ms-keyframes title-shine {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 @keyframes load {
+  0%{
+    top: -150%;
+    opacity: 0;
+  }
+  80% {
+    top: 50%;
+    opacity: .6;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes load {
+  0%{
+    top: -150%;
+    opacity: 0;
+  }
+  80% {
+    top: 50%;
+    opacity: .6;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes load {
+  0%{
+    top: -150%;
+    opacity: 0;
+  }
+  80% {
+    top: 50%;
+    opacity: .6;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+@-o-keyframes load {
+  0%{
+    top: -150%;
+    opacity: 0;
+  }
+  80% {
+    top: 50%;
+    opacity: .6;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes load {
   0%{
     top: -150%;
     opacity: 0;

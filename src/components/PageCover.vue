@@ -116,6 +116,10 @@ export default {
 
 .pageCoverInitLoad {
   animation: loadCover .5s ease-in forwards;
+  -webkit-animation: loadCover .5s ease-in forwards;
+  -moz-animation: loadCover .5s ease-in forwards;
+  -o-animation: loadCover .5s ease-in forwards;
+  -ms-animation: loadCover .5s ease-in forwards;
 }
 
 .shrink:hover {
@@ -141,12 +145,28 @@ export default {
 }
 
 @keyframes loadCover {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes loadCover {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes loadCover {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes loadCover {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-ms-keyframes loadCover {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {

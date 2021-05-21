@@ -139,20 +139,15 @@ export default {
   max-width: 1000px;
   margin: 20px auto 0 auto;
   background: linear-gradient(to bottom, rgba(102, 102, 23, 1)50%,  rgba(102, 102, 23, 0)51%);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 100vw 200%;
+  background-size: 100vw 300%;
   background-position: 0 -2000px;
   animation: content-load 3s ease-in-out forwards;
-}
-
-@keyframes content-load {
-  0% {
-    background-position: 0 -2000px;
-  }
-  100% {
-    background-position: 0 0;
-  }
+  -webkit-animation: content-load 3s ease-in-out forwards;
+  -moz-animation: content-load 3s ease-in-out forwards;
+  -o-animation: content-load 3s ease-in-out forwards;
+  -ms-animation: content-load 3s ease-in-out forwards;
 }
 
 .hist {
@@ -214,6 +209,51 @@ export default {
   font-size: 25px;
 }
 
+@keyframes content-load {
+  0% {
+    -webkit-background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-webkit-keyframes content-load {
+  0% {
+    -webkit-background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-moz-keyframes content-load {
+  0% {
+    -webkit-background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-o-keyframes content-load {
+  0% {
+    -webkit-background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-ms-keyframes content-load {
+  0% {
+    -webkit-background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 @media screen and (min-width: 601px) and (max-width: 800px) {
   .about-content {
     width: 100vw;
@@ -250,7 +290,6 @@ export default {
 }
 
 @media screen and (max-width: 420px) {
-
   .history-container {
     width: 90%;
     max-width: 400px;

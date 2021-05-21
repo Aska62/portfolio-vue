@@ -116,6 +116,42 @@ export default {
   }
 }
 
+@-webkit-keyframes form-load {
+  0% {
+    background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-moz-keyframes form-load {
+  0% {
+    background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-o-keyframes form-load {
+  0% {
+    background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-ms-keyframes form-load {
+  0% {
+    background-position: 0 -2000px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 @keyframes form-load-sm {
   0% {
     background-position: 0 -2500px;
@@ -141,10 +177,14 @@ export default {
 @media screen and (min-width: 801px) {
   .form-wrapper {
     background: linear-gradient(to bottom, rgba(102, 102, 23, 1)20%, rgba(102, 102, 23, 0)65%);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 100vw 300vh;
     background-position: 0 -2000px;
+    -webkit-animation: form-load 3s ease-in forwards;
+    -moz-animation: form-load 3s ease-in forwards;
+    -o-animation: form-load 3s ease-in forwards;
+    -ms-animation: form-load 3s ease-in forwards;
     animation: form-load 3s ease-in forwards;
   }
 }
@@ -165,11 +205,15 @@ export default {
     position: fixed;
     top: 260px;
     background: linear-gradient(to bottom, rgba(102, 102, 23, 1)60%, rgba(102, 102, 23, 0)75%);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 100vw 300vh;
     background-position: 0 -2500px;
     animation: form-load-sm 3s ease-in forwards;
+    -webkit-animation: form-load-sm 3s ease-in forwards;
+    -moz-animation: form-load-sm 3s ease-in forwards;
+    -o-animation: form-load-sm 3s ease-in forwards;
+    -ms-animation: form-load-sm 3s ease-in forwards;
   }
   .contact-mail {
     font-size: 28px;
