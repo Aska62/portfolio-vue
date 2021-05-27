@@ -139,9 +139,9 @@ export default {
   max-width: 1000px;
   margin: 20px auto 0 auto;
   background: linear-gradient(to bottom, rgba(102, 102, 23, 1)50%,  rgba(102, 102, 23, 0)51%);
-  background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 100vw 300%;
+  background-size: 98vw 300%;
   background-position: 0 -2000px;
   animation: content-load 3s ease-in-out forwards;
   -webkit-animation: content-load 3s ease-in-out forwards;

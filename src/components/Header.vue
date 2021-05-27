@@ -246,6 +246,9 @@ export default {
 }
 
 @media screen and (max-width: 800px) {
+  .link-home {
+    letter-spacing: -1px;
+  }
   .header {
     width: 100vw;
   }
@@ -279,11 +282,11 @@ export default {
     animation: load-sm 3s ease-in-out forwards;
   }
   .page-title {
-    font-size: 65px;
+    font-size: 60px;
     line-height: 1;
     position: absolute;
     left: 50%;
-    top: 32px;
+    top: 28px;
     transform: translateX(-50%);
     opacity: 1;
   }

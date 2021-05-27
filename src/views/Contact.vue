@@ -107,60 +107,6 @@ export default {
   color:rgba(245, 245, 20, .4);
 }
 
-@keyframes form-load {
-  0% {
-    background-position: 0 -2000px;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-@-webkit-keyframes form-load {
-  0% {
-    background-position: 0 -2000px;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-@-moz-keyframes form-load {
-  0% {
-    background-position: 0 -2000px;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-@-o-keyframes form-load {
-  0% {
-    background-position: 0 -2000px;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-@-ms-keyframes form-load {
-  0% {
-    background-position: 0 -2000px;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
-@keyframes form-load-sm {
-  0% {
-    background-position: 0 -2500px;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
-
 @media screen and (max-width: 1200px) {
   .mail {
     display: none;
@@ -226,6 +172,48 @@ export default {
     font-size: 20px;
     margin: 0;
   }
+}
+
+@keyframes form-load {
+  0% { background-position: 0 -2000px; }
+  100% { background-position: 0 0; }
+}
+@-webkit-keyframes form-load {
+  0% { background-position: 0 -2000px; }
+  100% { background-position: 0 0; }
+}
+@-moz-keyframes form-load {
+  0% { background-position: 0 -2000px; }
+  100% { background-position: 0 0; }
+}
+@-o-keyframes form-load {
+  0% { background-position: 0 -2000px; }
+  100% { background-position: 0 0; }
+}
+@-ms-keyframes form-load {
+  0% { background-position: 0 -2000px; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes form-load-sm {
+  0% { background-position: 0 -2500px; }
+  100% { background-position: 0 0; }
+}
+@-webkit-keyframes form-load-sm {
+  0% { background-position: 0 -2500px; }
+  100% { background-position: 0 0; }
+}
+@-moz-keyframes form-load-sm {
+  0% { background-position: 0 -2500px; }
+  100% { background-position: 0 0; }
+}
+@-o-keyframes form-load-sm {
+  0% { background-position: 0 -2500px; }
+  100% { background-position: 0 0; }
+}
+@-ms-keyframes form-load-sm {
+  0% { background-position: 0 -2500px; }
+  100% { background-position: 0 0; }
 }
 </style>
 
