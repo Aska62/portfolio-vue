@@ -3,8 +3,14 @@
 </template>
 
 <style>
+@font-face {
+  font-family: "TexGryeAdventor";
+  src: url("./font/tex-gyre-adventor/texgyreadventor-regular.otf");
+
+}
+
 #app {
   color:#666617;
-  font-family: Courier, Arial;
+  font-family: "TexGryeAdventor", Courier, Arial;
 }
 </style>

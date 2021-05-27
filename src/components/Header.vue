@@ -76,6 +76,7 @@ export default {
   -webkit-text-fill-color: transparent;
   background-size: 400% 100%;
   background-position: 100% 0;
+  padding-right: 10px;
 }
 
 .titlePreload {

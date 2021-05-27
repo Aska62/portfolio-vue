@@ -113,11 +113,12 @@ li a:hover {
   transform: translateX(-50%);
   font-size: 40px;
   font-style:italic;
+  padding-right: 5px;
   opacity: 1;
   background: linear-gradient(to right, #e3e327 30%, #666617 70%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 400%;
+  background-size: 450%;
   background-position: 100%;
 }
 .name:hover {
