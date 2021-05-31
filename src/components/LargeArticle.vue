@@ -1,7 +1,10 @@
 <template>
 <section>
   <div class="large-article-box" v-bind:class="{ showLargeArticle: showArticle, visible: isVisible }">
-    <i class="fa fa-times close-icon" @click="hideArticle"></i>
+    <div class="close-icon" @click="hideArticle">
+      <div class="close-icon__left" v-bind:class="{ hidden: isHidden}"></div>
+      <div class="close-icon__right" v-bind:class="{ hidden: isHidden}"></div>
+    </div>
     <p class="image-desc">{{ imageDesc }}</p>
     <img class="large-article" :id=imageId :src=imageUrl @mouseover="imageZoom" >
     <div v-if="isWritePage" >
@@ -122,20 +125,37 @@ export default {
 }
 
 .close-icon {
-  width: 33px;
-  height: 33px;
-  font-size: 33px;
-  border-radius: 50%;
-  border: 3px solid #666617;
+  width: 3vw;
+  height: 3vw;
   position: absolute;
-  right: 3px;
-  top: 5px;
+  top: 3%;
+  right: 1%;
+  transition-duration: 0.3s;
 }
 
 .close-icon:hover {
   cursor: pointer;
-  color: rgba(102, 102, 23, .7);
-  border: 5px solid rgba(102, 102, 23, .5);
+  opacity: .6;
+}
+
+.close-icon__left {
+  width: 10%;
+  height: 80%;
+  background-color: #666617;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: skew(-45deg, 45deg);
+}
+
+.close-icon__right {
+  width: 10%;
+  height: 80%;
+  background-color: #666617;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: skew(45deg, -45deg);
 }
 
 .image-desc {

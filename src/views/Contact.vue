@@ -15,6 +15,7 @@
     <p class="contact-phone">+81(80)55030532</p>
   </div>
 </section>
+<ToPageTopBtn />
 <MenuBarSm :menuBarDisplayedPage=pageTitle />
 <Footer />
 </template>
@@ -24,6 +25,7 @@ import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
 import MenuBarSm from '@/components/MenuBarSm.vue'
+import ToPageTopBtn from '@/components/ToPageTopBtn.vue'
 
 export default {
   name: 'Contact',
@@ -31,7 +33,8 @@ export default {
     Header,
     Footer,
     SideBar,
-    MenuBarSm
+    MenuBarSm,
+    ToPageTopBtn
   },
   data() {
     return {
@@ -63,6 +66,16 @@ export default {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  background: linear-gradient(to bottom, rgba(102, 102, 23, 1)30%, rgba(102, 102, 23, 0)60%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100vw 200vh;
+  background-position-y: 100%;
+  animation: form-load 3s ease-in forwards;
+  -moz-animation: form-load 3s ease-in forwards;
+  -o-animation: form-load 3s ease-in forwards;
+  -ms-animation: form-load 3s ease-in forwards;
+  animation: form-load 3s ease-in forwards;
 }
 
 .contact-msg {
@@ -120,21 +133,6 @@ export default {
   }
 }
 
-@media screen and (min-width: 801px) {
-  .form-wrapper {
-    background: linear-gradient(to bottom, rgba(102, 102, 23, 1)20%, rgba(102, 102, 23, 0)65%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 100vw 300vh;
-    background-position: 0 -2000px;
-    -webkit-animation: form-load 3s ease-in forwards;
-    -moz-animation: form-load 3s ease-in forwards;
-    -o-animation: form-load 3s ease-in forwards;
-    -ms-animation: form-load 3s ease-in forwards;
-    animation: form-load 3s ease-in forwards;
-  }
-}
-
 @media screen and (max-width: 800px) {
   .contact-content {
     width: 100vw;
@@ -150,19 +148,9 @@ export default {
     justify-content: space-between;
     position: fixed;
     top: 260px;
-    background: linear-gradient(to bottom, rgba(102, 102, 23, 1)60%, rgba(102, 102, 23, 0)75%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 100vw 300vh;
-    background-position: 0 -2500px;
-    animation: form-load-sm 3s ease-in forwards;
-    -webkit-animation: form-load-sm 3s ease-in forwards;
-    -moz-animation: form-load-sm 3s ease-in forwards;
-    -o-animation: form-load-sm 3s ease-in forwards;
-    -ms-animation: form-load-sm 3s ease-in forwards;
   }
   .contact-mail {
-    font-size: 28px;
+    font-size: 8.5vw;
     margin-bottom: 25px;
   }
   .contact-msg {
@@ -175,46 +163,26 @@ export default {
 }
 
 @keyframes form-load {
-  0% { background-position: 0 -2000px; }
-  100% { background-position: 0 0; }
+  0% { background-position-y: 100%; }
+  100% { background-position-y: 0; }
 }
 @-webkit-keyframes form-load {
-  0% { background-position: 0 -2000px; }
-  100% { background-position: 0 0; }
+  0% { background-position-y: 100%; }
+  100% { background-position-y: 0; }
 }
 @-moz-keyframes form-load {
-  0% { background-position: 0 -2000px; }
-  100% { background-position: 0 0; }
+  0% { background-position-y: 100%; }
+  100% { background-position-y: 0; }
 }
 @-o-keyframes form-load {
-  0% { background-position: 0 -2000px; }
-  100% { background-position: 0 0; }
+  0% { background-position-y: 100%; }
+  100% { background-position-y: 0; }
 }
 @-ms-keyframes form-load {
-  0% { background-position: 0 -2000px; }
-  100% { background-position: 0 0; }
+  0% { background-position-y: 100%; }
+  100% { background-position-y: 0; }
 }
 
-@keyframes form-load-sm {
-  0% { background-position: 0 -2500px; }
-  100% { background-position: 0 0; }
-}
-@-webkit-keyframes form-load-sm {
-  0% { background-position: 0 -2500px; }
-  100% { background-position: 0 0; }
-}
-@-moz-keyframes form-load-sm {
-  0% { background-position: 0 -2500px; }
-  100% { background-position: 0 0; }
-}
-@-o-keyframes form-load-sm {
-  0% { background-position: 0 -2500px; }
-  100% { background-position: 0 0; }
-}
-@-ms-keyframes form-load-sm {
-  0% { background-position: 0 -2500px; }
-  100% { background-position: 0 0; }
-}
 </style>
 
 

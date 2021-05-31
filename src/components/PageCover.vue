@@ -3,7 +3,10 @@
   class="page-cover"
   v-bind:class="{ fade: isFading, shrink: hasShrank, pageCoverInitLoad: isInitLoad }"
   @click="enlargeCover">
-    <i class="fa fa-times close-icon2" @click="shrinkCover" v-bind:class="{ hidden: isHidden}"></i>
+    <div class="close-icon" @click="shrinkCover" v-bind:class="{ hidden: isHidden}">
+      <div class="close-icon__left" v-bind:class="{ hidden: isHidden}"></div>
+      <div class="close-icon__right" v-bind:class="{ hidden: isHidden}"></div>
+    </div>
     <PageCoverTitle
       :pageCoverTitle="pageCoverTitle"
       v-bind:class="{ hidden: isHidden}"/>
@@ -52,19 +55,32 @@ export default {
   methods: {
     hideCover() {
       this.isHidden = true;
+      this.isInvisible = true;
     },
     shrinkCover() {
+      this.isInvisible = true;
       this.hasShrank = true;
+      const body = document.querySelector(".body");
+      body.classList.remove("body-fixed");
       setTimeout(this.hideCover,200);
+      console.log(body.classList);
     },
     enlargeCover() {
       if (this.isHidden === true) {
+        const body = document.querySelector(".body");
+        console.log(body);
+        body.classList.add("body-fixed");
         this.hasShrank = false;
         this.isHidden = false;
+        this.isInvisible = false;
+        console.log(body.classList)
       }
     },
     loadCover() {
+      const body = document.querySelector(".body");
       if (this.isInitLoad === true) {
+        console.log('this is the initial load')
+        body.classList.add("body-fixed");
         setTimeout(() => {
           this.isInitLoad = false;
         }, 2000);
@@ -76,15 +92,12 @@ export default {
 
 <style scoped>
 .page-cover {
-  width: 80vw;
-  height: 86vh;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(212, 212, 193, .9);
-  border-radius: 20px;
-  margin: 20px;
-  box-shadow: 5px 5px 5px #666617;
+  background-color: rgba(232, 232, 232, .95);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,11 +115,15 @@ export default {
   display: none;
 }
 
+.invisible {
+  display: none;
+}
+
 .shrink {
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background-color: rgba(102, 102, 23, .6);
+  background-color: rgba(102, 102, 23, .5);
   box-shadow: unset;
   position: fixed;
   margin: 0;
@@ -127,21 +144,47 @@ export default {
   background-color: rgba(102, 102, 23, .8);
 }
 
-.close-icon2 {
-  width: 50px;
-  height: 50px;
-  font-size: 50px;
-  border-radius: 50%;
-  border: 3px solid #666617;
+.close-icon {
+  width: 5vw;
+  height: 5vw;
   position: absolute;
-  top: 40px;
-  right: 15%;
+  top: 4%;
+  right: 5%;
+  transition-duration: 0.3s;
 }
 
-.close-icon2:hover {
+.close-icon:hover {
   cursor: pointer;
-  color: rgba(102, 102, 23, .7);
-  border: 3px solid rgba(102, 102, 23, .5);
+  opacity: .6;
+}
+
+.close-icon__left {
+  width: 8%;
+  height: 80%;
+  background-color: #666617;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: skew(-45deg, 45deg);
+}
+
+.close-icon__right {
+  width: 8%;
+  height: 80%;
+  background-color: #666617;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: skew(45deg, -45deg);
+}
+
+.body-fixed {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.btn-disabled {
+  pointer-events: none;
 }
 
 @keyframes loadCover {
@@ -169,26 +212,10 @@ export default {
   100% { opacity: 1; }
 }
 
-@media screen and (min-width: 800px) and (max-width: 1200px) {
-  .close-icon2 {
-    top: 20px;
-    right: 20px;
-  }
-}
-
 @media screen and (min-width: 421px) and (max-width: 800px) {
-  .page-cover {
-    width: 90vw;
-    height: fit-content;
-    min-height: 85vh;
-  }
-  .close-icon2 {
-    top: 10px;
-    right: 10px;
-  }
   .shrink {
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     min-height: unset;
     border-radius: 50%;
     padding: 0;
@@ -199,34 +226,12 @@ export default {
 }
 
 @media screen and (max-width: 600px) {
-  .page-cover {
-    width: 92%;
-    height: fit-content;
-    min-height: 77vh;
-    padding: 40px 2px;
-    box-shadow: none;
-  }
-  .close-icon2 {
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
-  }
   .shrink {
-    width: 38px;
-    min-height: 38px;
-    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     padding: 0;
     position: fixed;
     top: 10px;
-    left: 88%;
-  }
-}
-@media screen and (max-width: 420px) {
-  .close-icon2 {
-    top: 25px;
-    right: 18px;
-  }
-  .shrink {
     left: 88%;
   }
 }

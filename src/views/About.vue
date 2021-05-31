@@ -141,8 +141,9 @@ export default {
   background: linear-gradient(to bottom, rgba(102, 102, 23, 1)50%,  rgba(102, 102, 23, 0)51%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 98vw 300%;
-  background-position: 0 -2000px;
+  background-size: 100% 800vh;
+  background-position-y: 100%;
+  opacity: 0;
   animation: content-load 3s ease-in-out forwards;
   -webkit-animation: content-load 3s ease-in-out forwards;
   -moz-animation: content-load 3s ease-in-out forwards;
@@ -211,46 +212,71 @@ export default {
 
 @keyframes content-load {
   0% {
-    -webkit-background-position: 0 -2000px;
+    background-position-y: -800vh;
+  }
+  50% {
+    background-position-y: -400vh;
+    opacity: .3;
   }
   100% {
-    background-position: 0 0;
+    background-position-y: 0;
+    opacity: 1;
   }
 }
 
 @-webkit-keyframes content-load {
   0% {
-    -webkit-background-position: 0 -2000px;
+    background-position-y: -800vh;
+  }
+  50% {
+    background-position-y: -400vh;
+    opacity: .3;
   }
   100% {
-    background-position: 0 0;
+    background-position-y: 0;
+    opacity: 1;
   }
 }
 
 @-moz-keyframes content-load {
   0% {
-    -webkit-background-position: 0 -2000px;
+    background-position-y: -800vh;
+  }
+  50% {
+    background-position-y: -400vh;
+    opacity: .3;
   }
   100% {
-    background-position: 0 0;
+    background-position-y: 0;
+    opacity: 1;
   }
 }
 
 @-o-keyframes content-load {
   0% {
-    -webkit-background-position: 0 -2000px;
+    background-position-y: -800vh;
+  }
+  50% {
+    background-position-y: -400vh;
+    opacity: .3;
   }
   100% {
-    background-position: 0 0;
+    background-position-y: 0;
+    opacity: 1;
   }
 }
 
 @-ms-keyframes content-load {
   0% {
-    -webkit-background-position: 0 -2000px;
+    background-position-y: -800vh;
+  }
+  50% {
+    background-position-y: -400vh;
+    opacity: .3;
   }
   100% {
-    background-position: 0 0;
+    background-position-y: 0;
+    opacity: 1;
   }
 }
 

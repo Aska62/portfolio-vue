@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { computed } from '@vue/runtime-core';
 import captureImages from '../data/capture_imgs.json'
 
 export default {
@@ -43,7 +44,7 @@ export default {
       storeLeft: false,
       storeRight: false,
       initialLoad: true,
-      imageShifted: false,
+      imageShifted: true,
       sliderContainer: {},
       markerContainer: {},
       clickedMarkerId: 0,
@@ -84,6 +85,7 @@ export default {
       this.nextImgId = newNextImgId;
       // Update markers
       this.changeMarker();
+      this.imageShifted = true;
     },
     shiftToRight() {
       // Shift shown image to right
@@ -119,6 +121,8 @@ export default {
 
       // Update marker
       this.changeMarker();
+
+      this.imageShifted = true;
     },
     jumpToClickedImage(id) {
       let allImgs = document.querySelectorAll(".image-box");
@@ -185,6 +189,13 @@ export default {
       // Load dot
       this.changeMarker();
     });
+    setInterval(() => {
+      if (this.imageShifted === true) {
+        this.imageChanged = false,
+        this.shiftToLeft();
+        this.imageShifted = true;
+      }
+    }, 7000)
   }
 }
 </script>
@@ -248,7 +259,7 @@ export default {
 }
 
 .btn:hover {
-  opacity: 1;
+  opacity: .6;
   cursor: pointer;
 }
 
@@ -267,7 +278,7 @@ export default {
 .btn__line {
   width: 23%;
   height: 50%;
-  background-color: palevioletred;
+  background-color: #666617;
   position: absolute;
 }
 
@@ -325,7 +336,7 @@ export default {
 .current-marker {
   height: 15px;
   width: 15px;
-  background-color: palevioletred;
+  background-color: #666617;
   opacity: .9;
 }
 </style>

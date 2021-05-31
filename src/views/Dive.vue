@@ -7,6 +7,7 @@
     </div>
     <PageText :text1=text1 :text2=text2 :text3=text3 :text4=text4 :textDesc=textDesc />
   </section>
+  <ToPageTopBtn />
   <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
@@ -17,6 +18,7 @@ import Footer from '@/components/Footer.vue'
 import SideBar from '@/components/SideBar.vue'
 import MenuBarSm from '@/components/MenuBarSm.vue'
 import PageText from '@/components/PageText.vue'
+import ToPageTopBtn from '@/components/ToPageTopBtn.vue'
 
 export default {
   name: 'Dive',
@@ -25,7 +27,8 @@ export default {
     Footer,
     SideBar,
     MenuBarSm,
-    PageText
+    PageText,
+    ToPageTopBtn
   },
   data() {
     return {
@@ -96,8 +99,8 @@ export default {
 
 @media screen and (max-width: 420px) {
   .video {
-    width: 364px;
-    height: 204px;
+    width: 100vw;
+    height: 56.28vw;
   }
 }
 

@@ -13,6 +13,7 @@
       </div>
     </div>
   </section>
+  <ToPageTopBtn />
   <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer />
 </template>
@@ -26,6 +27,7 @@ import PageCover from '@/components/PageCover.vue'
 import ArticleIcon from '@/components/ArticleIcon.vue'
 import axios from 'axios'
 import travelImages from '../data/travel_imgs.json'
+import ToPageTopBtn from '@/components/ToPageTopBtn.vue'
 
 export default {
   name: 'Travel',
@@ -35,7 +37,8 @@ export default {
     SideBar,
     MenuBarSm,
     PageCover,
-    ArticleIcon
+    ArticleIcon,
+    ToPageTopBtn
   },
   data() {
     return {

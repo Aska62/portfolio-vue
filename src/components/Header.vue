@@ -1,6 +1,6 @@
 <template>
   <section class="header">
-    <router-link to="/" class="link-home"><h2 id="page-top">Aska Takahashi</h2></router-link>
+    <router-link to="/" class="link-home" id="page-top"><h2>Aska Takahashi</h2></router-link>
     <h1 class="page-title" v-bind:class="{ titlePreload: beforeLoading, titleFlash: titleFlash }">{{ pageTitle }}</h1>
   </section>
 </template>
@@ -45,7 +45,11 @@ export default {
 
 .link-home {
   text-decoration: none;
-  color: #c94242;
+  background: linear-gradient(to right, rgba(201, 66, 66, .4) 30%, rgba(201, 66, 66, 1) 50%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 450%;
+  background-position: 100%;
   position: absolute;
   left: 20px;
   top: -150%;
@@ -55,17 +59,19 @@ export default {
   -moz-animation: load 3s ease-in-out forwards;
   -o-animation: load 3s ease-in-out forwards;
   -ms-animation: load 3s ease-in-out forwards;
+  transition-duration: .5s;
+  z-index: 1;
 }
 
 .link-home:hover {
   cursor: pointer;
-  color: #eb7171;
+  background-position: 0;
 }
 
 .page-title {
   font-size: 80px;
-  font-style:italic;
   text-align: center;
+  line-height: 1;
   margin: 0;
   position: absolute;
   left: 50%;
@@ -77,6 +83,7 @@ export default {
   background-size: 400% 100%;
   background-position: 100% 0;
   padding-right: 10px;
+  z-index: 0;
 }
 
 .titlePreload {
@@ -240,12 +247,6 @@ export default {
   }
 }
 
-@media screen and (min-width: 601px) and (max-width: 1200px) {
-  .link-home {
-    width: 80px;
-  }
-}
-
 @media screen and (max-width: 800px) {
   .link-home {
     letter-spacing: -1px;
@@ -276,7 +277,7 @@ export default {
     height: 40px;
     font-size: 15px;
     left: -150vw;
-    top: 0;
+    top: -7px;
     transform: translateX(-50%);
     line-height: 1;
     opacity: 0;

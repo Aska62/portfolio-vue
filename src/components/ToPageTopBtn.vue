@@ -1,101 +1,98 @@
 <template>
-  <div class="btn-container">
+  <a href="#page-top" class="btn-container hidden">
     <div class="arrow">
       <div class="arrow-top"></div>
       <div class="arrow-bottom"></div>
     </div>
     <p class="btn-letter">TOP</p>
-    <div class="page-top-btn"></div>
-    <a href="#page-top"><div class="page-top-btn-cover"></div></a>
-  </div>
+  </a>
 </template>
 
 <script>
 export default {
-  name: 'ToPageTopBtn'
+  name: 'ToPageTopBtn',
+  methods: {
+    // FADE IN TO-TOP BUTTON WHEN SCROLLED TILL DESIGNED POSITION
+    displayToTopBtn () {
+      const toTopBtn = document.querySelector(".btn-container");
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
+      if (scrollY >= windowHeight * 0.6) {
+        toTopBtn.classList.remove("hidden");
+      } else {
+        toTopBtn.classList.add("hidden");
+      }
+    }
+  },
+  created() {
+    window.addEventListener('scroll', this.displayToTopBtn)
+  },
 }
 
 </script>
 
 <style scoped>
 .btn-container {
-  width: 80px;
-  height: 80px;
+  text-decoration: none;
+  width: 50px;
+  height: 50px;
   position: fixed;
   right: 125px;
   bottom: 80px;
+  border-radius: 50%;
+  text-align: center;
+  background: linear-gradient(to right, rgba(201, 66, 66, 1) 30%, rgba(201, 66, 66, .7) 50%);
+  background-size: 450%;
+  background-position: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.page-top-btn {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background-color: rgba(201, 66, 66, 1);
-  text-align: center;
   z-index: 1;
+  transition-duration: .8s;
 }
 
-.page-top-btn-cover {
-  width: 61px;
-  height: 61px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, .5);
-  z-index: 5;
-  transition-duration: .7s;
+.btn-container:hover {
+  background-position: 0;
 }
 
-.page-top-btn-cover:hover {
-  background-color: rgba(255, 255, 255, .2);
+.arrow {
+  width: 50px;
+  height: 20px;
+  opacity: .8;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.arrow-top {
+  width: 15px;
+  height: 2.5px;
+  background-color: rgba(255, 255, 255, 1);
+  transform: skew(0deg, -45deg);
+  padding: 0;
+}
+.arrow-bottom {
+  width: 15px;
+  height: 2.5px;
+  background-color: rgba(255, 255, 255, 1);
+  transform: skew(0deg, 45deg);
+  z-index: 3;
 }
 
 .btn-letter {
   color: rgba(255, 255, 255, .9);
   margin: 0;
-  line-height: 60px;
-  position: absolute;
-  top: 58%;
-  left: 50%;
-  transform: translate(-50%, -42%);
+  line-height: 1;
   z-index: 2;
+  font-size: 12px;
 }
-.arrow {
-  width: 120px;
-  height: 120px;
-  position: relative;
-  opacity: .8;
-  margin-top: 60px;
-  z-index: 2;
-}
-.arrow-top {
-  width: 35px;
-  height: 35px;
-  background-color: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: -10%;
-  left: 50%;
-  transform: translate(-50%, -95%) rotate(45deg);
-}
-.arrow-bottom {
-  width: 35px;
-  height: 35px;
-  background-color: rgba(201, 66, 66, 1);
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, -95%) rotate(45deg);
-  z-index: 3;
+
+.hidden {
+  opacity: 0;
 }
 
 @media screen and (max-width: 800px) {

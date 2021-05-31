@@ -6,7 +6,10 @@
 @font-face {
   font-family: "TexGryeAdventor";
   src: url("./font/tex-gyre-adventor/texgyreadventor-regular.otf");
+}
 
+html {
+  scroll-behavior: smooth;
 }
 
 #app {

@@ -12,6 +12,7 @@
     </div>
   </a>
 </section>
+<ToPageTopBtn />
 <MenuBarSm :menuBarDisplayedPage=pageTitle />
 <Footer />
 </template>
@@ -23,6 +24,7 @@ import SideBar from '@/components/SideBar.vue'
 import MenuBarSm from '@/components/MenuBarSm.vue'
 import PageText from '@/components/PageText.vue'
 import ImageSlider from '@/components/ImageSlider.vue'
+import ToPageTopBtn from '@/components/ToPageTopBtn.vue'
 
 export default {
   name: 'Capture',
@@ -32,9 +34,10 @@ export default {
     SideBar,
     MenuBarSm,
     PageText,
-    ImageSlider
+    ImageSlider,
+    ToPageTopBtn
   },
-  data() {
+    data() {
     return {
       pageTitle: "Capture",
       text1: "I am a ",
@@ -68,14 +71,17 @@ export default {
   position: fixed;
   right: 120px;
   top: 18px;
-  color: rgba(201, 66, 66, .9);
+  background: linear-gradient(to right, rgba(201, 66, 66, .9) 30%, rgba(201, 66, 66, .6) 50%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 450%;
+  background-position: 100%;
+  transition-duration: 1.5s;
   z-index: 5;
 }
 .link-insta:hover {
   cursor: pointer;
-  font-size: 70px;
-  color: rgba(201, 66, 66, .6);
-  background-color:rgba(255, 255, 255, .5);
+  background-position: 0;
 }
 .insta-msg {
   font-size: 15px;
@@ -99,7 +105,7 @@ export default {
 @media screen and (min-width: 421px) and (max-width: 600px) {
   .link-insta {
     right: 0;
-    top: 120px;
+    top: 20px;
   }
 }
 
@@ -119,8 +125,7 @@ export default {
 @media screen and (max-width: 420px) {
   .link-insta {
     right: -8%;
-    top: unset;
-    bottom: 30px;
+    top: 63vh;
   }
   .insta-msg {
     display: none;

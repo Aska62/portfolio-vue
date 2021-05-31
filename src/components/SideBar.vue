@@ -3,19 +3,19 @@
     <div
       @click="displayMenu"
       class="hamburger-box"
-      v-bind:class="{ round: isRound }">
-      <div class="hamburger line1" v-bind:class="{hamburger__visible: hamburger__isVisible}"></div>
-      <div class="hamburger line2" v-bind:class="{hamburger__visible: hamburger__isVisible}"></div>
-      <div class="hamburger line3" v-bind:class="{hamburger__visible: hamburger__isVisible}"></div>
+      v-bind:class="{ cross: isCross }">
+      <div class="hamburger" v-bind:class="{hamburger__cross_left: hamburger__isCross}"></div>
+      <div class="hamburger" v-bind:class="{hamburger__cross_middle: hamburger__isCross}"></div>
+      <div class="hamburger" v-bind:class="{hamburger__cross_right: hamburger__isCross}"></div>
     </div>
-    <div class="menu-container" v-bind:class="{ menu__visible: menu__isVisible }">
-      <router-link to="/code"><p class="menu">Code</p></router-link>
-      <router-link to="/write"><p class="menu">Write</p></router-link>
-      <router-link to="/dive"><p class="menu">Dive</p></router-link>
-      <router-link to="/capture"><p class="menu">Capture</p></router-link>
-      <router-link to="/travel"><p class="menu">Travel</p></router-link>
-      <router-link to="/about"><p class="menu">About</p></router-link>
-      <router-link to="/contact"><p class="menu">Contact</p></router-link>
+    <div class="menu-container">
+      <router-link to="/code" class="menu menu__code" v-bind:class="{ menu__visible: menu__isVisible }">Code</router-link>
+      <router-link to="/write" class="menu menu__write" v-bind:class="{ menu__visible: menu__isVisible }">Write</router-link>
+      <router-link to="/dive" class="menu menu__dive" v-bind:class="{ menu__visible: menu__isVisible }">Dive</router-link>
+      <router-link to="/capture" class="menu menu__capture" v-bind:class="{ menu__visible: menu__isVisible }">Capture</router-link>
+      <router-link to="/travel" class="menu menu__travel" v-bind:class="{ menu__visible: menu__isVisible }">Travel</router-link>
+      <router-link to="/about" class="menu menu__about" v-bind:class="{ menu__visible: menu__isVisible }">About</router-link>
+      <router-link to="/contact" class="menu menu__contact" v-bind:class="{ menu__visible: menu__isVisible }">Contact</router-link>
     </div>
   </section>
 </template>
@@ -25,8 +25,8 @@ export default {
   name: 'SideBar',
   data: function() {
     return {
-      isRound: false,
-      hamburger__isVisible: true,
+      isCross: false,
+      hamburger__isCross: false,
       menu__isVisible: false,
       currentPage: false
     }
@@ -39,22 +39,25 @@ export default {
   },
   methods: {
     displayMenu() {
-      if (this.isRound === false) {
-        this.isRound = true;
-        this.hamburger__isVisible = false;
+      if (this.isCross === false) {
+        this.isCross = true;
+        this.hamburger__isCross = true;
         this.menu__isVisible = true;
         this.highlightPageTitle();
       } else {
-        this.isRound = false;
-        this.hamburger__isVisible = true;
+        this.isCross = false;
+        this.hamburger__isCross = false;
         this.menu__isVisible = false;
       }
     },
     highlightPageTitle() {
+      console.log(`displayed page is ${this.displayedPage}`);
       const titles = document.querySelectorAll('.menu');
       for(let i = 0; i < titles.length; i++) {
+        console.log(`checking menu title ${titles[i].textContent}`);
         if (this.displayedPage === titles[i].textContent) {
-          titles[i].classList.add("displayed")
+          titles[i].classList.add("displayed");
+          console.log(titles[i].classList);
           break;
         }
       }
@@ -71,6 +74,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   position: fixed;
   top: 0;
   right: 0;
@@ -78,23 +82,40 @@ export default {
 }
 .hamburger-box {
   width: 35%;
-  height: 6%;
-  margin: 12% 0 12% 0;
-  transition-duration: 0.3s;
+  height: 3%;
+  margin: 12% auto;
+  position: relative;
 }
 .hamburger-box:hover {
   cursor: pointer;
+  opacity: .7;
 }
 .hamburger {
   width: 100%;
-  height: 10%;
+  height: 15%;
   background-color: #666617;
   margin-bottom: 10px;
-  display: none;
+  display: block;
+  transition-duration: .5s;
 }
 
-.hamburger__visible {
-  display: block;
+.hamburger__cross_left {
+  width: 60%;
+  background-color: #666617;
+  transform: skew(-45deg, 45deg);
+  position: absolute;
+  top: 50%;
+  left: 10%;
+}
+.hamburger__cross_middle {
+  display: none;
+}
+.hamburger__cross_right {
+  width: 60%;
+  transform: skew(45deg, -45deg);
+  position: absolute;
+  top: 50%;
+  left: 10%;
 }
 
 .menu-btn {
@@ -104,30 +125,62 @@ export default {
 .close {
   display: none;
 }
-.round {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background-color: #666617;
-  transition-duration: 0.3s;
-}
-.menu-container {
-  display: none;
-  transition-duration: 1s;
-}
 
-.menu__visible {
-  display: block;
+.menu-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition-duration: 1s;
 }
 
 .menu {
   font-size: 20px;
-  margin: 30px 0 25px 0;
-  color:#666617;
+  margin: 4vh 0 0 0;
+  line-height: 1;
+  background: linear-gradient(to right, #b87e21 30%, #666617 60%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 150%;
+  background-size: 450%;
+  background-position: 100%;
+  transition-duration: .7s;
 }
 
 .menu:hover {
-  color: #c94242;
+  background-position: 0;
+}
+
+.menu__code {
+  transition-duration: .2s;
+}
+
+.menu__write {
+  transition-duration: .3s;
+}
+
+.menu__dive {
+  transition-duration: .4s;
+}
+
+.menu__capture {
+  transition-duration: .5s;
+}
+
+.menu__travel {
+  transition-duration: .6s;
+}
+
+.menu__about {
+  transition-duration: .7s;
+}
+
+.menu__contact {
+  transition-duration: .8s;
+}
+
+.menu__visible {
+  padding-left: 0;
 }
 
 a:link {
@@ -135,7 +188,7 @@ a:link {
 }
 
 .displayed {
-  color:#d6d694;
+  background-position: 0;
 }
 
 @media screen and (max-width: 800px) {

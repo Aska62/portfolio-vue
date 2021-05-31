@@ -11,6 +11,7 @@
       </div>
     </div>
   </section>
+  <ToPageTopBtn />
   <SideBar :displayedPage=pageTitle />
   <MenuBarSm :menuBarDisplayedPage=pageTitle />
   <Footer/>
@@ -25,6 +26,7 @@ import PageCover from '@/components/PageCover.vue'
 import ArticleIcon from '@/components/ArticleIcon.vue'
 import axios from 'axios'
 import articlesData from "../data/articles.json"
+import ToPageTopBtn from '@/components/ToPageTopBtn.vue'
 
 export default {
   name: 'Write',
@@ -34,7 +36,8 @@ export default {
     SideBar,
     MenuBarSm,
     PageCover,
-    ArticleIcon
+    ArticleIcon,
+    ToPageTopBtn
   },
   data() {
     return {
